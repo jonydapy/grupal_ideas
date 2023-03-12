@@ -77,8 +77,10 @@
 .containergenerico {
     position: absolute;
     transform: translate(-50%,-50%);
-    top: 33%;
+    top: 50%;
     left: 50%;
+    right: -48%;
+    bottom: -35%;
     }
 
 .containergenerico_izq {
@@ -139,7 +141,7 @@ left: 75%;
     }
 
 .cuadrogenerico {
-    height: 460px;
+    height: 100%;
     padding: 3em;
     border-radius: 20px;
     background: rgba(255,255,255,0.3);
