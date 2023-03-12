@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ideas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"> 
+</head>
+<body class="bodyindex">
+
+            <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #21081a49;">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Left elements -->
+        <h4 class="titulo navbar-nav me-auto mb-2 mb-lg-0">Proyecto Ideas</h4>
+        <!-- end Left elements -->
+        </div>
+        
+        <!-- Right elements -->
+        <div>
+            <ul class="list navbar-nav me-auto mb-2 mb-lg-0">
+                    <li><a href="index.html" class="current">Home</a></li>
+                    <li><a href="#contact">Contact us</a></li>
+            </ul>
+        </div>
+        <!-- end Right elements -->
+    </div>
+    <!-- end Container wrapper -->
+</nav>
+
+<div class="containerregister">
+    <form action="/register" method="post" class="cuadroregister">
+    <p class="titulo">Register</p>
+                        <!-- {% with messages = get_flashed_messages(category_filter=['register']) %}
+                        {% if messages %}
+                        <div class="alert alert-danger" role="alert">
+                            <strong>Atention!!!</strong>
+                                {% for message in messages %}
+                                <p>{{message}}</p>
+                                {% endfor %}
+                        </div>
+                        {% endif %}
+                    {% endwith %} -->
+    <input class="input" type="text" name="first_name" placeholder="Enter First Name" required=""><br>
+    <input class="input" type="text" name="last_name" placeholder="Enter Last Name" required=""><br>
+    <input class="input" type="email" name="email" placeholder="Enter E-mail" required=""><br>
+    <input class="input" type="password" placeholder="Enter Password" required=""><br>
+    <input class="input" type="confirm" placeholder="Confirm Password" required=""><br>
+    <input class="input" type="submit" value="Register" /><br>
+    </form>
+    
+    <div class="drops">
+        <div class="drop drop-1"></div>
+        <div class="drop drop-2"></div>
+        <div class="drop drop-3"></div>
+        <div class="drop drop-4"></div>
+        <div class="drop drop-5"></div>
+        <div class="drop drop-6"></div>
+        <div class="drop drop-7"></div>
+        <div class="drop drop-8"></div>
+    </div>
+</div>
+
+<section id="contact">
+<footer class="text-center text-white fixed-bottom" style="background-color: #21081a49;">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">© 2023 Copyright: Mathias Villalba, Luis Roche, Joel Maidana, Jonattan Da Silva.
+    </div>
+    <!-- Copyright -->
+</footer>
+</section>
+</body>
+</html>
