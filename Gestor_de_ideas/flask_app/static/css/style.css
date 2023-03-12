@@ -1,13 +1,13 @@
 .bodycampaigns{
     background-image: url(https://wallpaperaccess.com/full/187161.jpg);
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     font-family: helvetica;
     margin: 0;
     padding: 0;
 }
 .bodyindex{
     background-image: url(https://img.freepik.com/free-photo/top-view-background-beautiful-white-grey-brown-cream-blue-background_140725-72219.jpg);
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -16,7 +16,7 @@
 }
 .bodygenerico{
     background-image: url(https://wallpaperaccess.com/full/187161.jpg);
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: cover;
     margin: 0;
     padding: 0;
