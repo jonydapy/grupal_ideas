@@ -15,7 +15,7 @@
     font-family: 'Montserrat', sans-serif;
 }
 .bodygenerico{
-    background-image: url(https://img.freepik.com/free-photo/top-view-background-beautiful-white-grey-brown-cream-blue-background_140725-72219.jpg);
+    background-image: url(https://wallpaperaccess.com/full/187161.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
@@ -81,6 +81,22 @@
     left: 50%;
     }
 
+.containergenerico_izq {
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 18%;
+    right: 50%;
+    }
+
+.containergenerico_der {
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 67%;
+    right: -28%;
+    }
+
 .container1 {
 position: absolute;
 transform: translate(-50%,-50%);
@@ -124,6 +140,26 @@ left: 75%;
 
 .cuadrogenerico {
     height: 460px;
+    padding: 3em;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
+    text-align: center;
+    }
+
+.cuadrogenerico_izq {
+    height: 790px;
+    padding: 3em;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
+    text-align: center;
+    }
+
+.cuadrogenerico_der {
+    height: 790px;
     padding: 3em;
     border-radius: 20px;
     background: rgba(255,255,255,0.3);
