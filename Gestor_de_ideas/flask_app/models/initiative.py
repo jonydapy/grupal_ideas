@@ -1,7 +1,7 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask import flash
 
-class User:
+class Initiative:
     db_name = "ideas"
     def __init__(self,data):
         self.idinitiative = data['idinitiative']

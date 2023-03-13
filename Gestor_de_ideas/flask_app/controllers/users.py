@@ -1,6 +1,7 @@
 from flask import render_template,redirect,session,request, flash
 from flask_app import app
 from flask_app.models.user import User
+from flask_app.models.initiative import Initiative
 #from flask_app.models.agendamiento import Agendamiento
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
@@ -49,3 +50,12 @@ def dashboard():
 def logout():
     session.clear()
     return redirect('/')
+
+@app.route('/create/initiative') # Jony
+def initiative():
+    if session.get('user_id') == None:
+        return redirect('/login')
+    if session.get('type_user') == "Admin" or session.get('type_user') == "Lider":
+        return  render_template('give_initiatives.html')
+    else:
+        return redirect('/login')
