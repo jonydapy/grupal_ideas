@@ -6,14 +6,50 @@
     padding: 0;
 }
 .bodyindex{
-    /* background-image: url(https://img.freepik.com/free-photo/top-view-background-beautiful-white-grey-brown-cream-blue-background_140725-72219.jpg); */
-    background-image: url(https://img.freepik.com/free-photo/wonderful-landscape-ukrainian-carpathian-mountains_176420-7175.jpg);
-    background-repeat: repeat;
-    background-size: cover;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+}
+.section_top{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background-image: url(https://img.freepik.com/free-photo/successful-businesswoman-working-laptop-computer-thinks-new-ideas-her-office-dressed-up-white-clothes_231208-4810.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    justify-content: center;
+    animation: change 90s infinite ease-in-out;
+}
+@keyframes change{
+    0%
+    {
+        background-image: url(https://img.freepik.com/free-photo/corporate-management-strategy-solution-branding-concept_53876-167088.jpg);
+    }
+    20%
+    {
+        background-image: url(https://img.freepik.com/free-photo/girl-deciding-what-product-better-look-up-thoughtful-touch-chin-thinking-smiling-shopping-alone-making-choice-considering-proposals_176420-44746.jpg);
+    }
+    40%
+    {
+        background-image: url(https://img.freepik.com/free-photo/business-asian-people-meeting-office-use-post-it-notes-share-idea-brainstorming-concept_74952-2802.jpg);
+    }
+    60%
+    {
+        background-image: url(https://img.freepik.com/free-photo/group-casually-dressed-business-people-discussing-ideas-office_7861-1634.jpg);
+    }
+    80%
+    {
+        background-image: url(https://img.freepik.com/free-photo/caucasian-man-working-shoot_53876-30174.jpg);
+    }
+    100%
+    {
+        background-image: url(https://img.freepik.com/free-photo/woman-creating-inspiring-vision-board-side-view_23-2150104625.jpg);
+    }
 }
 .bodygenerico{
     background-image: url(https://wallpaperaccess.com/full/187161.jpg);
@@ -216,7 +252,7 @@ text-align: center;
 background: transparent;
 width: 220px;
 font-size: 0.9em;
-color: #c4c4c4;
+color: #000000;
 padding: 1em;
 margin-bottom: 2em;
 font-weight: 500;
@@ -226,7 +262,7 @@ box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.25);
 }
 
 .cuadrotexto {
-    color: #fff;
+    color: #000000;
     opacity: 0.7;
     font-size: 0.9em;
     margin-top: 0;
@@ -240,8 +276,9 @@ box-shadow: 2px 2px 40px 5px rgba(0,0,0,0.9);
 outline: none;
 }     
 .input::placeholder {
-color: #c4c4c4;
+color: #00000088;
 font-weight: 100;
+font-weight: bold;
 }
 .input[type="submit"] {
 margin-top: 10px;
