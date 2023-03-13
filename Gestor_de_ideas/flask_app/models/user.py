@@ -1,8 +1,10 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 import re	# the regex module
-# create a regular expression object that we'll use later   
-EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 from flask import flash
+
+# Expersion regular para validar correos   
+EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
+
 
 class User:
     db_name = "ideas"
@@ -66,6 +68,6 @@ class User:
         if len(user['password']) < 8:
             flash("Password must be at least 8 characters","register")
             is_valid= False
-        if user['password'] != user['confirm']:
+        if user['password'] != user['conf-password']:
             flash("Passwords don't match","register")
         return is_valid

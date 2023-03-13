@@ -1,7 +1,7 @@
 from flask import render_template,redirect,session,request, flash
 from flask_app import app
 from flask_app.models.user import User
-from flask_app.models.initiative import Initiative
+#from flask_app.models.initiative import Initiative
 #from flask_app.models.agendamiento import Agendamiento
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
@@ -10,10 +10,22 @@ bcrypt = Bcrypt(app)
 def index():
     return render_template('index.html')
 
-@app.route('/register',methods=['POST'])
+@app.route('/register', methods = ['GET','POST'])
 def register():
+    if request.method == 'POST':
+        if request.form['password'] == request.form['conf-password']:
+            data = dict(request.form)
+            data['password'] = bcrypt.generate_password_hash(request.form['password'])
+            if User.validate_register(request.form):
+                usuario = User.save(data)
+                print(usuario)
+                session['id'] = usuario.iduser
+                return redirect('/dashboard')
+        else:
+            flash('Passwords must be the same!')
+    return render_template('register.html')
 
-    if not User.validate_register(request.form):
+    """ if not User.validate_register(request.form):
         return redirect('/')
     data ={ 
         "first_name": request.form['first_name'],
@@ -23,11 +35,24 @@ def register():
     }
     id = User.save(data)
     session['user_id'] = id
-    return redirect('/dashboard')
+    return redirect('/dashboard') """
 
 @app.route('/login',methods=['POST'])
 def login():
-    user = User.get_by_email(request.form)
+    if request.method == 'POST':
+        email = request.form.get("emailmail")
+        password = request.form.get("password")
+        usuario = User.get_by_email(email)
+        if usuario is None or not bcrypt.check_password_hash(usuario.password, password):
+            flash("Incorrect Password/Email")
+            return redirect('/login')
+        session["id"] = usuario.iduser
+        print(session, "***checkeo exitoso***")
+        return redirect('/home')
+    else:
+        return redirect('/login')
+    
+    """ user = User.get_by_email(request.form)
     if not user:
         flash("Invalid Email","login")
         return redirect('/')
@@ -35,7 +60,7 @@ def login():
         flash("Invalid Password","login")
         return redirect('/')
     session['user_id'] = user.id
-    return redirect('/dashboard')
+    return redirect('/dashboard') """
 
 @app.route('/dashboard')
 def dashboard():
