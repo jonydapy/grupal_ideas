@@ -37,7 +37,7 @@ def register():
     session['user_id'] = id
     return redirect('/dashboard') """
 
-@app.route('/login',methods=['POST'])
+@app.route('/login',methods = ['GET','POST'])
 def login():
     if request.method == 'POST':
         email = request.form.get("emailmail")
