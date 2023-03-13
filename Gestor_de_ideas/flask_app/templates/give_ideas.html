@@ -13,13 +13,53 @@
 
 <div class="containergenerico_izq">
     <div class="cuadrogenerico_izq">
-        <p class="titulo">Contenedor generico izq</p>
+        <p class="titulo">Aportes de otros usuarios:</p>
+        <ul class="list navbar-nav col-11">
+            <li> idea 1</li>
+            <li> idea 2 </li>
+            <li> idea 3 </li>
+            <li> idea 4 </li>
+            <li> idea 5 </li>
+        </ul>
+        <br>
+        <input type="#" value="Ver más" class="btn btn-primary">
     </div>
 </div>
 
 <div class="containergenerico_der">
     <div class="cuadrogenerico_der">
-        <p class="titulo">Contenedor generico der</p>
+        <p class="titulo">Aporta tus ideas a la campaña #</p>
+        <form action="/create/ideas" method="post" class="col-11 p-4 my-4 bg-dark bg-opacity-50 text-light mx-auto">
+<!--            {% with messages = get_flashed_messages(category_filter=['magazine']) %}
+                {% if messages %}
+                <div class="alert alert-danger" role="alert">
+                    <strong>Flash AHHHHHHH!!!!</strong>
+                        {% for message in messages %}
+                        <p>{{message}}</p>
+                        {% endfor %}
+                </div>
+                {% endif %}
+                {% endwith %} -->
+            
+            <div>
+                <div>
+                    <div class="form-group">
+                        <label class="subtitulo" for="title">Nombre de idea:</label>
+                        <input type="text" name="title" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <br>
+                        <label class="subtitulo" for="description">Describe tu idea:</label>
+                        <textarea name="description"  cols="50" rows="10" class="form-control"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <br>
+                        <input type="submit" value="Enviar" class="btn btn-primary">
+                    </div>
+                </div>
+
+            </div>
+        </form>
     </div>
 </div>
 

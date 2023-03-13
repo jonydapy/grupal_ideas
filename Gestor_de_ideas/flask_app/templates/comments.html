@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Others</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
 </head>
 
@@ -13,7 +13,43 @@
 
 <div class="containergenerico">
     <div class="cuadrogenerico">
-        <p class="titulo">Contenedor generico</p>
+        <p class="titulo">Comentarios</p>
+        <form action="/create/comments" method="post" class="col-11 p-4 my-4 bg-dark bg-opacity-50 text-light mx-auto">
+                        
+                        <div>
+                            <div>
+                                <div class="form-group">
+                                    <br>
+                                    <label class="subtitulo" for="description">Describe tu idea:</label>
+                                    <div class="form-control text-start">
+                                        <br>
+                                        <strong>Idea:</strong> idea 1
+                                        <br>
+                                        <strong>Creador:</strong> Jony
+                                        <br>
+                                        <strong>Descripcion:</strong> Esta idea consiste en poder implementar inteligencia artificial para poder mejorar las ventas de la empresa, la inteligencia debe analizar el comportamiento de los clientes de X manera.
+                                        <br>
+                                        <strong>Comentarios (#)</strong>
+                                        <br>
+                                        <strong>Luis</strong>
+                                        <br>
+                                        Esta idea me parece interesante porque es el futuro
+                                        <br>
+                                        <strong>Luis</strong>
+                                        <br>
+                                        Esta muy bien planteada
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <br>
+                                    <input type="text" name="title" class="form-control">
+                                    <br>
+                                    <input type="submit" value="Enviar" class="btn btn-primary">
+                                </div>
+                            </div>
+            
+                        </div>
+                    </form>
     </div>
 </div>
 
