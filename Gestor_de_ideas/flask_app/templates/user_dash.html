@@ -36,12 +36,90 @@
     <div class="containergenerico_izq">
         <div class="cuadrogenerico_izq">
             <p class="titulo">Accesos directos:</p>
+            {% if user_data.type_user == 1 %}
             <div class="col">
-                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Ver campañas</a>
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Strategies</a>
             </div>
             <div class="col mt-3" >
-                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Ver iniciativas</a>
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Campaigns</a>
             </div>
+            <div class="col mt-3" >
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Rate initiatives</a>
+            </div>
+            <div class="col mt-3" >
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Cluster ideas</a>
+            </div>
+            <div class="col mt-3" >
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Create Campaigns</a>
+            </div>
+            <div class="col mt-3" >
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Create Initiatives</a>
+            </div>
+            <div class="col mt-3" >
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Initiatives</a>
+            </div>
+            <div class="col mt-3" >
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Hip and Exp</a>
+            </div>
+            <div class="col mt-3" >
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Roles</a>
+            </div>
+            {% elif user_data.type_user == 2 %}
+            <div class="col">
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Strategies</a>
+            </div>
+            <div class="col mt-3" >
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Campaigns</a>
+            </div>
+            <div class="col mt-3" >
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Initiatives</a>
+            </div>
+            <div class="col mt-3" >
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Hip and Exp</a>
+            </div>
+            {% elif user_data.type_user == 3 %}
+            <div class="col mt-3" >
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Campaigns</a>
+            </div>
+            <div class="col mt-3" >
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Create Campaigns</a>
+            </div>
+            <div class="col mt-3" >
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Initiatives</a>
+            </div>
+            <div class="col mt-3" >
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Rate initiatives</a>
+            </div>
+            <div class="col mt-3" >
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Hip and Exp</a>
+            </div>
+            {% elif user_data.type_user == 4 %}
+            <div class="col">
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Campaigns</a>
+            </div>
+            <div class="col">
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Cluster ideas</a>
+            </div>
+            <div class="col">
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Clusters</a>
+            </div>
+            <div class="col">
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Create Initiatives</a>
+            </div>
+            <div class="col">
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Initiatives</a>
+            </div>
+            <div class="col mt-3" >
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Hip and Exp</a>
+            </div>
+            {% else %}
+            <div class="col">
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Campaigns</a>
+            </div>
+            <div class="col">
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Initiatives</a>
+            </div>
+            {% endif %}
         </div>
     </div>
     <div class="containergenerico_der">
@@ -65,7 +143,7 @@
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Cantidad de Iniciativas:</td>
-                                        <td>5</td>
+                                        <td>{{ count_initiatives[0]['count(*)'] }}</td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Cantidad de Hipótesis:</td>

@@ -1,7 +1,7 @@
 from flask import render_template, redirect, session, request, flash
 from flask_app import app
 from flask_app.models.user import User
-#from flask_app.models.initiative import Initiative
+from flask_app.models.initiative import Initiative
 #from flask_app.models.agendamiento import Agendamiento
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
@@ -70,8 +70,10 @@ def dashboard():
     else:
         print(session)
         user_data = User.get_by_id(session)
+        count_initiatives = Initiative.count_initiatives()
+        print(count_initiatives)
         print(user_data)
-    return render_template("user_dash.html", user_data = user_data)
+    return render_template("user_dash.html", user_data = user_data, count_initiatives = count_initiatives)
 
 @app.route('/logout')
 def logout():

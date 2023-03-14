@@ -6,13 +6,12 @@ class Initiative:
     def __init__(self,data):
         self.idinitiative = data['idinitiative']
         self.name = data['name']
-        self.created_at = data['created_at']
-        self.updated_at = data['updated_at']
         self.id_cluster = data['id_cluster']
+        self.id_cluster = data['id_rating']
 
     @classmethod
     def save(cls,data):
-        query = "INSERT INTO initiative (name, created_at, updated_at, id_cluster) VALUES (%(name)s, NOW(), NOW(), %(id_cluster)s);"
+        query = "INSERT INTO initiative (name, id_cluster, id_rating) VALUES (%(name)s, %(id_cluster)s, %(id_rating)s);"
         return connectToMySQL(cls.db_name).query_db(query,data)
 
     @classmethod
@@ -29,6 +28,12 @@ class Initiative:
         query = "SELECT * FROM initiative WHERE idinitiative = %(idinitiative)s;"
         results = connectToMySQL(cls.db_name).query_db(query,data)
         return cls(results[0])
+    
+    @classmethod
+    def count_initiatives(cls):
+        query = "select count(*) from initiative;"
+        result = connectToMySQL(cls.db_name).query_db(query)
+        return result
 
     @staticmethod
     def validate_initiative(initiative):
