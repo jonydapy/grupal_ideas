@@ -93,7 +93,7 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (1,'Esto es muy interesante jejeje',9,1),(2,'No le veo futuro',8,1);
+INSERT INTO `comments` VALUES (1,'Esto es muy interesante jejeje',11,1),(2,'No le veo futuro',12,1);
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -155,7 +155,7 @@ CREATE TABLE `ideas` (
 
 LOCK TABLES `ideas` WRITE;
 /*!40000 ALTER TABLE `ideas` DISABLE KEYS */;
-INSERT INTO `ideas` VALUES (1,'Implemen tar AI',9,1,1);
+INSERT INTO `ideas` VALUES (1,'Implemen tar AI',11,1,1);
 /*!40000 ALTER TABLE `ideas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,7 +176,7 @@ CREATE TABLE `initiative` (
   KEY `fk_initiative_ratings1_idx` (`id_rating`),
   CONSTRAINT `fk_initiative_cluster1` FOREIGN KEY (`id_cluster`) REFERENCES `cluster` (`idcluster`),
   CONSTRAINT `fk_initiative_ratings1` FOREIGN KEY (`id_rating`) REFERENCES `ratings` (`idrating`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -185,7 +185,7 @@ CREATE TABLE `initiative` (
 
 LOCK TABLES `initiative` WRITE;
 /*!40000 ALTER TABLE `initiative` DISABLE KEYS */;
-INSERT INTO `initiative` VALUES (1,'Implementacion de AI para ventas',1,1);
+INSERT INTO `initiative` VALUES (1,'Implementacion de AI para ventas',1,1),(2,'Implementacion de AI para ventas',1,1),(3,'Implementacion de AI para ventas',1,1),(4,'Implementacion de AI para ventas',1,1),(5,'Implementacion de AI para ventas',1,1);
 /*!40000 ALTER TABLE `initiative` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -212,7 +212,7 @@ CREATE TABLE `ratings` (
 
 LOCK TABLES `ratings` WRITE;
 /*!40000 ALTER TABLE `ratings` DISABLE KEYS */;
-INSERT INTO `ratings` VALUES (1,'Sin Calificar',8);
+INSERT INTO `ratings` VALUES (1,'Sin Calificar',11);
 /*!40000 ALTER TABLE `ratings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -240,7 +240,7 @@ CREATE TABLE `strategies` (
 
 LOCK TABLES `strategies` WRITE;
 /*!40000 ALTER TABLE `strategies` DISABLE KEYS */;
-INSERT INTO `strategies` VALUES (1,'Aumentar Ventas','Aumentar ventas sin aumentar costos',8);
+INSERT INTO `strategies` VALUES (1,'Aumentar Ventas','Aumentar ventas sin aumentar costos',11);
 /*!40000 ALTER TABLE `strategies` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -287,7 +287,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`iduser`),
   KEY `fk_users_type_user_idx` (`type_user`),
   CONSTRAINT `fk_users_type_user` FOREIGN KEY (`type_user`) REFERENCES `type_user` (`idtipo`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -296,7 +296,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (8,'Poderoso','Admin','admin@admin.com','12345678','2023-03-14 10:56:06','2023-03-14 10:56:06',1),(9,'Usuario','SinPoder','user@user.com','12345678','2023-03-14 10:56:44','2023-03-14 10:56:44',5),(10,'Javier','Irun','javier@gmail.com','$2b$12$kbKFSczNvg9Oxxcb2WdgluX1oUfTOsa3KQA.pxYUhTQKxwHL0GyG2','2023-03-14 11:50:18','2023-03-14 11:50:18',5),(11,'mario','delgado','mario@gmail.com','$2b$12$6E2SbW59Q2ler/2C8Tegxu.gHZyCUjXS8WZcfUEDjP0PRaRJxVTR2','2023-03-14 12:04:58','2023-03-14 12:04:58',5),(12,'juca','asdf','j@dd.com','$2b$12$kVZvsNxv8nXOW8WSOOIAGOW4YqBUrVhIuwK.mEA21r5eZGDB6bhFG','2023-03-14 12:12:38','2023-03-14 12:12:38',5),(13,'ddd','aaaa','k@gmail.com','$2b$12$lxMQvGuVULeDuAoQNq8RNenfQD/NBQcc9TVSwTFxzaAcnOwkZSjn2','2023-03-14 12:13:19','2023-03-14 12:13:19',5);
+INSERT INTO `users` VALUES (10,'Javier','Irun','javier@gmail.com','$2b$12$kbKFSczNvg9Oxxcb2WdgluX1oUfTOsa3KQA.pxYUhTQKxwHL0GyG2','2023-03-14 11:50:18','2023-03-14 11:50:18',2),(11,'mario','delgado','mario@gmail.com','$2b$12$6E2SbW59Q2ler/2C8Tegxu.gHZyCUjXS8WZcfUEDjP0PRaRJxVTR2','2023-03-14 12:04:58','2023-03-14 12:04:58',1),(12,'juca','asdf','j@dd.com','$2b$12$kVZvsNxv8nXOW8WSOOIAGOW4YqBUrVhIuwK.mEA21r5eZGDB6bhFG','2023-03-14 12:12:38','2023-03-14 12:12:38',4),(13,'ddd','aaaa','k@gmail.com','$2b$12$lxMQvGuVULeDuAoQNq8RNenfQD/NBQcc9TVSwTFxzaAcnOwkZSjn2','2023-03-14 12:13:19','2023-03-14 12:13:19',3),(14,'Usuario 1','Usuario 1','mail@mail.com','$2b$12$9sjSy9bZdjMowpYWFhLOsOfMJyE2eA7SsFTwQ0EPqBWx7tNKl.qTO','2023-03-14 17:29:19','2023-03-14 17:29:19',5),(15,'usuario 2','usuario 2','usuario@usuario.com','$2b$12$O4MCt4CQ6px6VM69VofW8.yOjjBOI0tZ3Jj3tBjclZ7Fi6ulBkaA2','2023-03-14 17:30:21','2023-03-14 17:30:21',5),(16,'Usuario 3','Usuario 3','usuario3@gmail.com','$2b$12$OqQieawmGrMsc87AsKcXOOakSgveWSkN8TMjwuIEAxBIJOQAz1cd6','2023-03-14 17:31:01','2023-03-14 17:31:01',5),(17,'usuario4','usuario4','usuario4@gmail.com','$2b$12$m4pn4VAxbvYLjCat.S7cAOqLyUgnpo6IUu4S1zd4Gg45xy9Ig9zJ6','2023-03-14 17:31:26','2023-03-14 17:31:26',5),(18,'usuario5','usuario5','usuario5@gmail.com','$2b$12$TDknJ/vtSS8QbiEV5ysdR.Aax4w1TDPQEcIcKB1q8aFys1jDhleRe','2023-03-14 17:31:46','2023-03-14 17:31:46',5),(19,'usuario6','usuario6','usuario6@gmail.com','$2b$12$q4U7Xq.hifHV7r2XSUP3s.KZV9wQJWlBH1pKDV155EesbIrkJBOca','2023-03-14 17:32:15','2023-03-14 17:32:15',5);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -309,4 +309,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-14 14:44:09
+-- Dump completed on 2023-03-14 18:17:26

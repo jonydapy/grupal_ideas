@@ -2,6 +2,7 @@ from flask import render_template, redirect, session, request, flash
 from flask_app import app
 from flask_app.models.user import User
 from flask_app.models.initiative import Initiative
+from flask_app.models.type_users import Type_User
 #from flask_app.models.agendamiento import Agendamiento
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
@@ -63,7 +64,7 @@ def log_user():
     session['user_id'] = user.id
     return redirect('/dashboard') """
 
-@app.route('/dashboard')
+@app.route('/dashboard') # Jony
 def dashboard():
     if session.get('id') == None:
             return redirect('/')
@@ -74,6 +75,30 @@ def dashboard():
         print(count_initiatives)
         print(user_data)
     return render_template("user_dash.html", user_data = user_data, count_initiatives = count_initiatives)
+
+@app.route('/admin/roles') # Jony
+def adm_roles():
+    if session.get('id') == None:
+        return redirect('/')
+    elif session.get('type_user') != 1: # esto es para validar rol
+        return redirect('/dashboard')
+    else:
+        print(session)
+        user_data = User.get_by_id(session)
+        print(user_data)
+    return render_template("adm_roles.html", user_data = user_data, tipo_roles = Type_User.get_all(), real_users = User.get_name_lastname_role())
+
+@app.route('/admin/roles-update', methods = ['POST']) # Jony
+def update_roles():
+    if session.get('id') == None:
+            return redirect('/')
+    datos_update = {
+        "iduser" : request.form['iduser'],
+        "idtipo" : request.form['idtipo']
+    }
+    print(datos_update['iduser'], datos_update['idtipo'])
+    User.update_role(datos_update)
+    return redirect('/admin/roles')
 
 @app.route('/logout')
 def logout():

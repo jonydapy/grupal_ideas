@@ -56,6 +56,30 @@ class User:
             return cls(result[0])
         else:
             return None
+        
+    @classmethod
+    def get_name_lastname_role(cls):
+        query = "select users.iduser as iduser, users.first_name as first_name, users.last_name as last_name, type_user.idtipo as idtipo, type_user.description as type_user from users join type_user on users.type_user = type_user.idtipo;"
+        results = connectToMySQL(cls.db_name).query_db(query)
+        users = []
+        for result in results:
+            users_data = {
+                "iduser" : result['iduser'],
+                "first_name" : result['first_name'],
+                "last_name" : result['last_name'],
+                "idtipo" : result['idtipo'],
+                "type_user" : result['type_user']
+            }
+            users.append( users_data )
+        return users
+    
+    @classmethod
+    def update_role(cls, data):
+        query = "update users set type_user = %(idtipo)s where iduser = %(iduser)s;"
+        return connectToMySQL(cls.db_name).query_db(query, data)
+    
+
+    
 
     @staticmethod
     def validate_register(user):

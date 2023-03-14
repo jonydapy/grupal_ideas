@@ -62,7 +62,7 @@
                 <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Hip and Exp</a>
             </div>
             <div class="col mt-3" >
-                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Roles</a>
+                <a href="{{ url_for('adm_roles') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Roles</a>
             </div>
             {% elif user_data.type_user == 2 %}
             <div class="col">
