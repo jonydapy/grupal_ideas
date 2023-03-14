@@ -1,4 +1,4 @@
-from flask import render_template,redirect,session,request, flash
+from flask import render_template, redirect, session, request, flash
 from flask_app import app
 from flask_app.models.user import User
 #from flask_app.models.initiative import Initiative
@@ -20,6 +20,7 @@ def register():
                 usuario = User.save(data)
                 print(usuario)
                 session['id'] = usuario.iduser
+                session['type_user'] = usuario.type_user
                 return redirect('/dashboard')
         else:
             flash('Passwords must be the same!')
@@ -37,20 +38,20 @@ def register():
     session['user_id'] = id
     return redirect('/dashboard') """
 
-@app.route('/login',methods = ['GET','POST'])
-def login():
+@app.route('/log-user', methods = ['GET','POST'])
+def login_user():
     if request.method == 'POST':
-        email = request.form.get("emailmail")
+        email = request.form.get("email")
         password = request.form.get("password")
         usuario = User.get_by_email(email)
-        if usuario is None or not bcrypt.check_password_hash(usuario.password, password):
-            flash("Incorrect Password/Email")
-            return redirect('/login')
+        if usuario is None or not bcrypt.check_password_hash(usuario.user_password, password):
+            flash("Mail/Contraseña incorrecto(s)")
+            return redirect('/')
         session["id"] = usuario.iduser
         print(session, "***checkeo exitoso***")
-        return redirect('/home')
+        return redirect('/dashboard')
     else:
-        return redirect('/login')
+        return redirect('/')
     
     """ user = User.get_by_email(request.form)
     if not user:
@@ -64,12 +65,11 @@ def login():
 
 @app.route('/dashboard')
 def dashboard():
-    if 'user_id' not in session:
-        return redirect('/logout')
-    data ={
-        'id': session['user_id']
-    }
-    return render_template("dashboard.html",user=User.get_by_id(data),agendamientos=Agendamiento.get_all(data))
+    if session.get('id') == None:
+            return redirect('/')
+    else:
+        print(session)
+    return render_template("user_dash.html")
 
 @app.route('/logout')
 def logout():

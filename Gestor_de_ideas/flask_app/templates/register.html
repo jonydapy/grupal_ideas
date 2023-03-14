@@ -10,71 +10,70 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"> 
 </head>
 <body class="bodyindex">
-<div class="section_top">
-            <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #21081a49;">
-    <!-- Container wrapper -->
-    <div class="container-fluid">
-        <!-- Collapsible wrapper -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Left elements -->
-        <h4 class="titulo navbar-nav me-auto mb-2 mb-lg-0">Proyecto Ideas</h4>
-        <!-- end Left elements -->
-        </div>
-        
-        <!-- Right elements -->
-        <div>
-            <ul class="list navbar-nav me-auto mb-2 mb-lg-0">
-                    <li><a href="index.html" class="current">Home</a></li>
-                    <li><a href="#contact">Contact us</a></li>
-            </ul>
-        </div>
-        <!-- end Right elements -->
-    </div>
-    <!-- end Container wrapper -->
-</nav>
+    <div class="section_top">
+                    <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #21081a49;">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+                <!-- Collapsible wrapper -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left elements -->
+                <h4 class="titulo navbar-nav me-auto mb-2 mb-lg-0">Proyecto Ideas</h4>
+                <!-- end Left elements -->
+                </div>
+                
+                <!-- Right elements -->
+                <div>
+                    <ul class="list navbar-nav me-auto mb-2 mb-lg-0">
+                            <li><a href="{{ url_for('index') }}" class="current">Home</a></li>
+                            <li><a href="#contact">Contact us</a></li>
+                    </ul>
+                </div>
+                <!-- end Right elements -->
+            </div>
+            <!-- end Container wrapper -->
+        </nav>
 
-<div class="containerregister">
-    <form action="/register" method="post" class="cuadroregister">
-    <p class="titulo">Register</p>
-                        <!-- {% with messages = get_flashed_messages(category_filter=['register']) %}
-                        {% if messages %}
-                        <div class="alert alert-danger" role="alert">
-                            <strong>Atention!!!</strong>
-                                {% for message in messages %}
+        <div class="containerregister">
+            <form action="{{ url_for('register') }}" method="post" class="cuadroregister">
+                <p class="titulo">Register</p>
+                <input type="hidden" value="5" name="type_user">
+                <input class="input" type="text" name="first_name" placeholder="Enter First Name" required><br>
+                <input class="input" type="text" name="last_name" placeholder="Enter Last Name" required><br>
+                <input class="input" type="email" name="email" placeholder="Enter E-mail" required><br>
+                <input class="input" type="password" placeholder="Enter Password" name="password" required><br>
+                <input class="input" type="password" placeholder="Confirm Password" name="conf-password"required><br>
+                <input class="input" type="submit" value="Register" /><br>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="text-center text-white bg-danger col-12 rounded my-3">
                                 <p>{{message}}</p>
-                                {% endfor %}
-                        </div>
-                        {% endif %}
-                    {% endwith %} -->
-    <input class="input" type="text" name="first_name" placeholder="Enter First Name" required><br>
-    <input class="input" type="text" name="last_name" placeholder="Enter Last Name" required><br>
-    <input class="input" type="email" name="email" placeholder="Enter E-mail" required><br>
-    <input class="input" type="password" placeholder="Enter Password" name="password" required><br>
-    <input class="input" type="password" placeholder="Confirm Password" name="conf-password"required><br>
-    <input class="input" type="submit" value="Register" /><br>
-    </form>
-    
-    <div class="drops">
-        <div class="drop drop-1"></div>
-        <div class="drop drop-2"></div>
-        <div class="drop drop-3"></div>
-        <div class="drop drop-4"></div>
-        <div class="drop drop-5"></div>
-        <div class="drop drop-6"></div>
-        <div class="drop drop-7"></div>
-        <div class="drop drop-8"></div>
-    </div>
-</div>
+                            </div >
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </form>
+            <div class="drops">
+                <div class="drop drop-1"></div>
+                <div class="drop drop-2"></div>
+                <div class="drop drop-3"></div>
+                <div class="drop drop-4"></div>
+                <div class="drop drop-5"></div>
+                <div class="drop drop-6"></div>
+                <div class="drop drop-7"></div>
+                <div class="drop drop-8"></div>
+            </div>
+        </div>
 
-<section id="contact">
-<footer class="text-center text-white fixed-bottom" style="background-color: #21081a49;">
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">© 2023 Copyright: Mathias Villalba, Luis Roche, Joel Maidana, Jonattan Da Silva.
+        <section id="contact">
+            <footer class="text-center text-white fixed-bottom" style="background-color: #21081a49;">
+                <!-- Copyright -->
+                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">© 2023 Copyright: Mathias Villalba, Luis Roche, Joel Maidana, Jonattan Da Silva.
+                </div>
+                <!-- Copyright -->
+            </footer>
+        </section>
     </div>
-    <!-- Copyright -->
-</footer>
-</section>
-</div>
 </body>
 </html>
