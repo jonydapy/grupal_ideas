@@ -44,12 +44,12 @@ def log_user():
         email = request.form.get("email")
         password = request.form.get("password")
         usuario = User.get_by_email(email)
-        if usuario is None or not bcrypt.check_password_hash(usuario.user_password, password):
+        if usuario is None or not bcrypt.check_password_hash(usuario.password, password):
             flash("Mail/Contraseña incorrecto(s)")
             return redirect('/')
-        session["id"] = usuario.id_user
-        print(session, "***checkeo exitoso***")
-        return redirect('/home')
+        session["id"] = usuario.iduser
+        session['type_user'] = usuario.type_user
+        return redirect('/dashboard')
     else:
         return redirect('/')
     

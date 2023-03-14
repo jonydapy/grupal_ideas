@@ -287,7 +287,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`iduser`),
   KEY `fk_users_type_user_idx` (`type_user`),
   CONSTRAINT `fk_users_type_user` FOREIGN KEY (`type_user`) REFERENCES `type_user` (`idtipo`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -296,7 +296,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (8,'Poderoso','Admin','admin@admin.com','12345678','2023-03-14 10:56:06','2023-03-14 10:56:06',1),(9,'Usuario','SinPoder','user@user.com','12345678','2023-03-14 10:56:44','2023-03-14 10:56:44',5);
+INSERT INTO `users` VALUES (8,'Poderoso','Admin','admin@admin.com','12345678','2023-03-14 10:56:06','2023-03-14 10:56:06',1),(9,'Usuario','SinPoder','user@user.com','12345678','2023-03-14 10:56:44','2023-03-14 10:56:44',5),(10,'Javier','Irun','javier@gmail.com','$2b$12$kbKFSczNvg9Oxxcb2WdgluX1oUfTOsa3KQA.pxYUhTQKxwHL0GyG2','2023-03-14 11:50:18','2023-03-14 11:50:18',5),(11,'mario','delgado','mario@gmail.com','$2b$12$6E2SbW59Q2ler/2C8Tegxu.gHZyCUjXS8WZcfUEDjP0PRaRJxVTR2','2023-03-14 12:04:58','2023-03-14 12:04:58',5),(12,'juca','asdf','j@dd.com','$2b$12$kVZvsNxv8nXOW8WSOOIAGOW4YqBUrVhIuwK.mEA21r5eZGDB6bhFG','2023-03-14 12:12:38','2023-03-14 12:12:38',5),(13,'ddd','aaaa','k@gmail.com','$2b$12$lxMQvGuVULeDuAoQNq8RNenfQD/NBQcc9TVSwTFxzaAcnOwkZSjn2','2023-03-14 12:13:19','2023-03-14 12:13:19',5);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -309,4 +309,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-14 11:05:04
+-- Dump completed on 2023-03-14 14:44:09
