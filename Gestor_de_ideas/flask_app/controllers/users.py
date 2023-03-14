@@ -39,7 +39,7 @@ def register():
     return redirect('/dashboard') """
 
 @app.route('/log-user', methods = ['GET','POST'])
-def login_user():
+def log_user():
     if request.method == 'POST':
         email = request.form.get("email")
         password = request.form.get("password")
@@ -47,9 +47,9 @@ def login_user():
         if usuario is None or not bcrypt.check_password_hash(usuario.user_password, password):
             flash("Mail/Contraseña incorrecto(s)")
             return redirect('/')
-        session["id"] = usuario.iduser
+        session["id"] = usuario.id_user
         print(session, "***checkeo exitoso***")
-        return redirect('/dashboard')
+        return redirect('/home')
     else:
         return redirect('/')
     
@@ -69,7 +69,9 @@ def dashboard():
             return redirect('/')
     else:
         print(session)
-    return render_template("user_dash.html")
+        user_data = User.get_by_id(session)
+        print(user_data)
+    return render_template("user_dash.html", user_data = user_data)
 
 @app.route('/logout')
 def logout():
