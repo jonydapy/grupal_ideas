@@ -14,7 +14,7 @@
 <div class="containergenerico">
     <div class="cuadrogenerico">
         <p class="titulo">Comentarios</p>
-        <form action="/create/comments" method="post" class="col-11 p-4 my-4 bg-dark bg-opacity-50 text-light mx-auto">
+        <div class="col-11 p-4 my-4 bg-dark bg-opacity-50 text-light mx-auto">
                         
                         <div>
                             <div>
@@ -22,6 +22,7 @@
                                     <br>
                                     <label class="subtitulo" for="description">Describe tu idea:</label>
                                     <div class="form-control text-start">
+                                        {{% for idea in ideas%}}
                                         <br>
                                         <strong>Idea:</strong> idea 1
                                         <br>
@@ -38,18 +39,21 @@
                                         <strong>Luis</strong>
                                         <br>
                                         Esta muy bien planteada
+                                        {{% endfor%}}
                                     </div>
                                 </div>
+                                <form action="/savecomment/{{ idea.ididea }}" method="post">
                                 <div class="form-group">
                                     <br>
                                     <input type="text" name="title" class="form-control">
                                     <br>
                                     <input type="submit" value="Enviar" class="btn btn-primary">
                                 </div>
+                                </form>
                             </div>
             
                         </div>
-                    </form>
+                    </div>
     </div>
 </div>
 

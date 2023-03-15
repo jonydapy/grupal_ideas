@@ -17,61 +17,20 @@
         <div class="col-11 p-4 my-4 bg-body-secondary bg-opacity-50 text-light mx-auto">
             <table class="table table-bordered table-striped ">
                 <thead class="table-dark">
-                    <th>Nombre</th>
+                    <th>Nro de Idea</th>
+                    <th>Descripcion</th>
                     <th>Creador</th>
-                    <th>Comentarios</th>
                     <th>Acciones</th>
                 </thead>
-            
+            {{% for idea in ideas %}}
                 <tr>
-                    <td>idea 1</td>
-                    <td>Jony</td>
-                    <td>5</td>
-                    <td>Ver</td>
+                    <td> {{ idea.ididea }}</td>
+                    <td> {{idea.content}}</td>
+                    <td> {{idea.first_name}} {{idea.last_name}} </td> <!-- terminar query  -->
+                    <td><a href="verideaporid">Ver idea</a></td>
                 </tr>
-                <tr>
-                    <td>idea 2</td>
-                    <td>Luis</td>
-                    <td>6</td>
-                    <td>Ver</td>
-                </tr>
-                <tr>
-                    <td>idea 3</td>
-                    <td>Math</td>
-                    <td>11</td>
-                    <td>Ver</td>
-                </tr>
-                <tr>
-                    <td>idea 4</td>
-                    <td>Joel</td>
-                    <td>99</td>
-                    <td>Ver</td>
-                </tr>
+            {{% endfor %}}
                 
-                <tr>
-                    <td>idea 5</td>
-                    <td>Jony</td>
-                    <td>5</td>
-                    <td>Ver</td>
-                </tr>
-                <tr>
-                    <td>idea 6</td>
-                    <td>Luis</td>
-                    <td>6</td>
-                    <td>Ver</td>
-                </tr>
-                <tr>
-                    <td>idea 7</td>
-                    <td>Math</td>
-                    <td>11</td>
-                    <td>Ver</td>
-                </tr>
-                <tr>
-                    <td>idea 8</td>
-                    <td>Joel</td>
-                    <td>99</td>
-                    <td>Ver</td>
-                </tr>
             
             </table>
         </div>
