@@ -17,18 +17,25 @@ class Idea:
         return connectToMySQL(cls.db_name).query_db(query,data)
 
     @classmethod
-    def get_all(cls):
-        query = "SELECT * FROM ideas;"
+    def get_allideasporusuario(cls): #trae numero de idea,descripcion, nombre y apellido del creador de la idea en ideas.html
+        query = "select ididea, content, first_name, last_name from ideas join users on user_id = iduser"
         results = connectToMySQL(cls.db_name).query_db(query)
-        initiatives = []
+        ideas = []
         for row in results:
-            initiatives.append( cls(row))
-        return initiatives
-
+            ideas.append( cls(row))
+        return ideas
+    @classmethod
+    def get_allcampaing(cls): #trae numero de idea,descripcion, nombre y apellido del creador de la idea en ideas.html
+        query = "select * from campaigns"
+        results = connectToMySQL(cls.db_name).query_db(query)
+        campaigns = []
+        for row in results:
+            campaigns.append((row))
+        return campaigns
     @classmethod
     def get_by_ididea(cls,data):
         query = "SELECT * FROM ideas WHERE ididea = %(ididea)s;" 
-        #hacer join para traer nombre del usuario ej: SELECT distinct(si se repiten nombres) m.grupo_id, u.first_name, u.last_name FROM miembros m JOIN users u ON m.user_id=u.id order by m.grupo_id;"
+        #hacer join para traer nombre del us    uario ej: SELECT distinct(si se repiten nombres) m.grupo_id, u.first_name, u.last_name FROM miembros m JOIN users u ON m.user_id=u.id order by m.grupo_id;"
         results = connectToMySQL(cls.db_name).query_db(query,data)
         return (results[0])
     @classmethod
