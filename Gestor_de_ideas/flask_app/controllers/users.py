@@ -3,7 +3,6 @@ from flask_app import app
 from flask_app.models.user import User
 from flask_app.models.initiative import Initiative
 from flask_app.models.type_users import Type_User
-#from flask_app.models.agendamiento import Agendamiento
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
@@ -91,3 +90,9 @@ def initiative():
         return  render_template('give_initiatives.html')
     else:
         return redirect('/login')
+    
+@app.route('/campaings') # Jony
+def view_campaings():
+    if session.get('id') == None:
+        return redirect('/')
+    return render_template('campaings.html')
