@@ -22,27 +22,17 @@
                                     <br>
                                     <label class="subtitulo" for="description">Describe tu idea:</label>
                                     <div class="form-control text-start">
-                                        {{% for idea in ideas%}}
+                                        {% for idea in ideas %}
                                         <br>
-                                        <strong>Idea:</strong> idea 1
+                                        <strong>Idea:</strong> {{idea.ididea}}
                                         <br>
-                                        <strong>Creador:</strong> Jony
+                                        <strong>Creador:</strong> {{idea.first_name}} {{idea.last_name}}
                                         <br>
-                                        <strong>Descripcion:</strong> Esta idea consiste en poder implementar inteligencia artificial para poder mejorar las ventas de la empresa, la inteligencia debe analizar el comportamiento de los clientes de X manera.
-                                        <br>
-                                        <strong>Comentarios (#)</strong>
-                                        <br>
-                                        <strong>Luis</strong>
-                                        <br>
-                                        Esta idea me parece interesante porque es el futuro
-                                        <br>
-                                        <strong>Luis</strong>
-                                        <br>
-                                        Esta muy bien planteada
-                                        {{% endfor%}}
+                                        <strong>Descripcion:</strong> {{idea.content}}
+                                        {% endfor %}
                                     </div>
                                 </div>
-                                <form action="/savecomment/{{ idea.ididea }}" method="post">
+                                <!--  <form action="#" method="post"> -->
                                 <div class="form-group">
                                     <br>
                                     <input type="text" name="title" class="form-control">

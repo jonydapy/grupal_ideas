@@ -29,10 +29,12 @@ class Idea:
         return ideas
     @classmethod
     def get_by_ididea(cls,data):
-        query = "SELECT * FROM ideas WHERE ididea = %(ididea)s;" 
-        #hacer join para traer nombre del us    uario ej: SELECT distinct(si se repiten nombres) m.grupo_id, u.first_name, u.last_name FROM miembros m JOIN users u ON m.user_id=u.id order by m.grupo_id;"
+        query = "select ididea, content, first_name, last_name from ideas join users on user_id = iduser where ididea= %(ididea)s;" 
         results = connectToMySQL(cls.db_name).query_db(query,data)
-        return (results[0])
+        ideas = []
+        for row in results:
+            ideas.append( (row))
+        return ideas
     #@classmethod
     #def save_comment(cls,data):
     #    query = "insert into comments (comment, user_id, ididea ) values (%(comment)s,%(user_id)s,%(ididea)s)"
