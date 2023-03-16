@@ -34,7 +34,11 @@ def initiative_in_cluster(cluster):
             "id_cluster": cluster
         }
         all_ideas = Cluster.get_ideas_in_cluster(data)
-        return  render_template('initiatives_in_cluster.html', user_data = user_data)
+        print(len(all_ideas))
+        if len(all_ideas) < 1:
+            flash("This cluster is Empty - Please choose another Cluster")
+            return redirect('/cluster/create')
+        return  render_template('initiatives_in_cluster.html', user_data = user_data, all_ideas = all_ideas)
     else:
         return redirect('/')
 
