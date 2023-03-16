@@ -24,12 +24,18 @@ def create_cluster():
         return redirect('/cluster/create')
     return redirect('/')
 
-""" @app.route('/cluster/ideas/<int:cluster>') # Jony
-def create_cluster(cluster):
-    if request.method == 'POST':
-        data = dict(request.form)
-        Cluster.save(data)
-        return redirect('/cluster/create')
-    return redirect('/') """
+@app.route('/cluster/ideas/<int:cluster>') # Jony
+def initiative_in_cluster(cluster):
+    if session.get('id') == None:
+        return redirect('/')
+    if session.get('type_user') == 1 or session.get('type_user') == 4:
+        user_data = User.get_by_id(session)
+        data = {
+            "id_cluster": cluster
+        }
+        all_ideas = Cluster.get_ideas_in_cluster(data)
+        return  render_template('initiatives_in_cluster.html', user_data = user_data)
+    else:
+        return redirect('/')
 
 

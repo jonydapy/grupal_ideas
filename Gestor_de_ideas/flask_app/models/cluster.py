@@ -32,6 +32,21 @@ class Cluster:
         query = "select count(*) from cluster;"
         result = connectToMySQL(cls.db_name).query_db(query)
         return result
+    
+    @classmethod
+    def get_ideas_in_cluster(cls, data):
+        query = "SELECT ideas.content as idea_name, cluster.name_cluster as name_cluster, cluster.idcluster as idcluster FROM ideas INNER JOIN cluster ON ideas.id_cluster = cluster.idcluster WHERE ideas.id_cluster = %(id_cluster)s;"
+        results = connectToMySQL(cls.db_name).query_db(query, data)
+        ideas = []
+        for result in results:
+            users_data = {
+                "idea_name" : result['idea_name'],
+                "name_cluster" : result['name_cluster'],
+                "idcluster" : result['idcluster']
+            }
+            ideas.append( users_data )
+        print(results)
+        return ideas
 
     @staticmethod
     def validate_initiative(cluster):
