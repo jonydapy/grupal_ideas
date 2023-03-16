@@ -10,48 +10,42 @@
 </head>
 
 <body class="bodycampaigns">
-{% for campaign in campaigns %}
-    <a href="/verideas/{{campaign[0]['idcampaign']}}">
-<div class="container1">
-
-    <div class="cuadro1">
-        <p class="titulo">Campaña Nro: {{campaigns.idcampaign}}</p>
-        <h6> {{campaigns[0]['name_campaing']}}</h6>
-    </div>
-</div>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2a3d8fcc;">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Left elements -->
+            <h4 class="titulo navbar-nav me-auto mb-2 mb-lg-0">Proyecto Ideas</h4>
+            <!-- end Left elements -->
+            </div>
+            
+            <!-- Right elements -->
+            <div>
+                <ul class="list navbar-nav me-auto mb-2 mb-lg-0">
+                        <li><a href="#" class="current">Profile</a></li>
+                        <li><a href="#">Logout</a></li>
+                </ul>
+            </div>
+            <!-- end Right elements -->
+        </div>
+        <!-- end Container wrapper -->
+    </nav>
+    {% for campaign in campaigns %}
+    <a href="/verideas/{{campaign.idcampaign}}">
+        <div class="container1">
+            <div class="cuadro1">
+                <p class="titulo">Campaña Nro: {{ campaign.idcampaign }}</p>
+                <h6> {{ campaign.name_campaing }}</h6>
+            </div>
+        </div>
     </a>
-{% endfor %} <!-- traer todas las campañas para insertar ideas -->
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2a3d8fcc;">
-    <!-- Container wrapper -->
-    <div class="container-fluid">
-        <!-- Collapsible wrapper -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Left elements -->
-        <h4 class="titulo navbar-nav me-auto mb-2 mb-lg-0">Proyecto Ideas</h4>
-        <!-- end Left elements -->
+    {% endfor %} <!-- traer todas las campañas para insertar ideas -->
+    <footer class="text-center text-white fixed-bottom" style="background-color: #21081acc;">
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">© 2023 Copyright: Mathias Villalba, Luis Roche, Joel Maidana, Jonattan Da Silva.
         </div>
-        
-        <!-- Right elements -->
-        <div>
-            <ul class="list navbar-nav me-auto mb-2 mb-lg-0">
-                    <li><a href="#" class="current">Profile</a></li>
-                    <li><a href="#">Logout</a></li>
-            </ul>
-        </div>
-        <!-- end Right elements -->
-    </div>
-    <!-- end Container wrapper -->
-</nav>
-
-
-<footer class="text-center text-white fixed-bottom" style="background-color: #21081acc;">
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">© 2023 Copyright: Mathias Villalba, Luis Roche, Joel Maidana, Jonattan Da Silva.
-    </div>
-    <!-- Copyright -->
-</footer>
-<!--Prueba Joel-->
+        <!-- Copyright -->
+    </footer>
 </body>
 </html>

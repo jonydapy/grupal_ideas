@@ -11,6 +11,6 @@ bcrypt = Bcrypt(app)
 
 @app.route('/vercampaigns')
 def vercampaigns():
-    c=Campaign.get_allcampaing()
-    print(c)
-    return render_template('campaings.html', campaings= c)
+    campaigns = Campaign.get_allcampaing()
+    print(campaigns)
+    return render_template('campaings.html', campaigns=campaigns)

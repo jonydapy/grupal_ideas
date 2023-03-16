@@ -7,6 +7,7 @@ class Campaign:
         self.name_campaing = data['name_campaing']
         self.description = data['description']
         self.id_strategy= data['id_strategy']
+
     @classmethod
     def get_allcampaing(cls): #trae numero de idea,descripcion, nombre y apellido del creador de la idea en ideas.html
         query = "select * from campaigns;"
