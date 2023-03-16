@@ -24,12 +24,12 @@ def create_cluster():
         return redirect('/cluster/create')
     return redirect('/')
 
-@app.route('/cluster/ideas/<int:cluster>') # Jony
+""" @app.route('/cluster/ideas/<int:cluster>') # Jony
 def create_cluster(cluster):
     if request.method == 'POST':
         data = dict(request.form)
         Cluster.save(data)
         return redirect('/cluster/create')
-    return redirect('/')
+    return redirect('/') """
 
 

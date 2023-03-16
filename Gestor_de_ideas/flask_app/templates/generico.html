@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Others</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body class="bodycampaigns">
@@ -31,8 +31,9 @@
         <!-- Right elements -->
         <div>
             <ul class="list navbar-nav me-auto mb-2 mb-lg-0">
-                    <li><a href="#" class="current">Profile</a></li>
-                    <li><a href="#">Logout</a></li>
+                <li><a href="{{ url_for('dashboard') }}">Home</a></li>
+                <li><a href="#" class="current">Profile</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
             </ul>
         </div>
         <!-- end Right elements -->
