@@ -18,20 +18,12 @@ class Idea:
 
     @classmethod
     def get_allideasporusuario(cls): #trae numero de idea,descripcion, nombre y apellido del creador de la idea en ideas.html
-        query = "select ididea, content, first_name, last_name from ideas join users on user_id = iduser"
+        query = "select ididea, content, first_name, last_name from ideas join users on user_id = iduser;"
         results = connectToMySQL(cls.db_name).query_db(query)
         ideas = []
         for row in results:
             ideas.append( cls(row))
         return ideas
-    @classmethod
-    def get_allcampaing(cls): #trae numero de idea,descripcion, nombre y apellido del creador de la idea en ideas.html
-        query = "select * from campaigns"
-        results = connectToMySQL(cls.db_name).query_db(query)
-        campaigns = []
-        for row in results:
-            campaigns.append((row))
-        return campaigns
     @classmethod
     def get_by_ididea(cls,data):
         query = "SELECT * FROM ideas WHERE ididea = %(ididea)s;" 

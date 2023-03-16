@@ -10,7 +10,7 @@
 </head>
 
 <body class="bodycampaigns">
-{{% for campaign in campaigns %}}
+{% for campaign in campaigns %}
     <a href="/verideas/{{campaigns.idcampaign}}">
 <div class="container1">
 
@@ -20,7 +20,7 @@
     </div>
 </div>
     </a>
-{{% endfor %}} <!-- traer todas las campañas para insertar ideas -->
+{% endfor %} <!-- traer todas las campañas para insertar ideas -->
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2a3d8fcc;">
