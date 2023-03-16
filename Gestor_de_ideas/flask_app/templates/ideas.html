@@ -22,14 +22,14 @@
                     <th>Creador</th>
                     <th>Acciones</th>
                 </thead>
-            {{% for idea in ideas %}}
+            {% for idea in ideas %}
                 <tr>
                     <td> {{ idea.ididea }}</td>
                     <td> {{idea.content}}</td>
                     <td> {{idea.first_name}} {{idea.last_name}} </td> <!-- terminar query  -->
-                    <td><a href="verideaporid">Ver idea</a></td>
+                    <td><a href="verideaporid/{ididea}">Ver idea</a></td>
                 </tr>
-            {{% endfor %}}
+            {% endfor %}
                 
             
             </table>

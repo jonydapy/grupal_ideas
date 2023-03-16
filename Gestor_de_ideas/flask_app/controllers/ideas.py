@@ -8,11 +8,10 @@ from flask_app.models.type_users import Type_User
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
-@app.route('/verideas')
-def verideas(ididea):
+@app.route('/verideas/<int:id_campaign>')
+def verideadecampaign(id_campaign):
     data = {
-        "ididea": ididea,
-#        "content": content,
+        "id_campaign": id_campaign
     }
     return render_template('ideas.html', ideas=Idea.get_allideasporusuario(data))
 
