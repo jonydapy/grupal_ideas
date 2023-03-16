@@ -26,4 +26,14 @@ def create_initiative():
         return redirect('/initiative/create')
     return redirect('/')
 
+@app.route('/initiative/list') # Jony
+def list_of_initiatives():
+    if session.get('id') == None:
+        return redirect('/')
+    if session.get('type_user') == 1 or session.get('type_user') == 4:
+        user_data = User.get_by_id(session)
+        return render_template('initiative_list.html', all_initiatives = Initiative.get_initiative_w_cluster(), user_data = user_data)
+    else:
+        return redirect('/')
+
 
