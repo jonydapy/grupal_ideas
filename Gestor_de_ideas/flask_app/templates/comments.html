@@ -30,6 +30,11 @@
                                         <br>
                                         <strong>Descripcion:</strong> {{idea.content}}
                                         {% endfor %}
+                                        <br>
+                                        <strong>Comentarios:</strong>
+                                        {% for comment in comments %}
+                                        <p>{{comment.first_name}} {{comment.last_name}} : {{comment.comment}}  </p>
+                                        {% endfor %}
                                     </div>
                                 </div>
                                 <!--  <form action="#" method="post"> -->

@@ -29,7 +29,7 @@ class Idea:
         return ideas
     @classmethod
     def get_by_ididea(cls,data):
-        query = "select ididea, content, first_name, last_name from ideas join users on user_id = iduser where ididea= %(ididea)s;" 
+        query = "select ididea, content, first_name, last_name from ideas join users on user_id = iduser where ididea= %(ididea)s" 
         results = connectToMySQL(cls.db_name).query_db(query,data)
         ideas = []
         for row in results:
