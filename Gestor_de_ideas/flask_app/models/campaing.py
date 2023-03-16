@@ -13,5 +13,5 @@ class Campaign:
         results = connectToMySQL(cls.db_name).query_db(query)
         campaigns = []
         for row in results:
-            campaigns.append((row))
+            campaigns.append(cls(row))
         return campaigns

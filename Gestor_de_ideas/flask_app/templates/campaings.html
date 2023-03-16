@@ -11,12 +11,12 @@
 
 <body class="bodycampaigns">
 {% for campaign in campaigns %}
-    <a href="/verideas/{{campaigns.idcampaign}}">
+    <a href="/verideas/{{campaign[0]['idcampaign']}}">
 <div class="container1">
 
     <div class="cuadro1">
         <p class="titulo">Campaña Nro: {{campaigns.idcampaign}}</p>
-        <h6> {{campaigns.name_campaing}}</h6>
+        <h6> {{campaigns[0]['name_campaing']}}</h6>
     </div>
 </div>
     </a>
