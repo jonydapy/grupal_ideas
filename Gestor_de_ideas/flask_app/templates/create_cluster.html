@@ -88,16 +88,22 @@
     </div>
     <div class="containergenerico_der">
         <div class="cuadrogenerico_der">
-            <p class="titulo">Crear iniciativas:</p>
-                    <div class="row justify-content-center">
-                        <div class="col-10 rounded-lg me-2 rounded rounded-4" style="background-color: #2a3d8fcc;">
-                            <div class="col-10 m-0 p-0">
-                                        {% for cluster in all_clusters %}
-                                            {{ cluster.name_cluster }}
-                                        {% endfor %}
-                            </div>
-                        </div>
+            <p class="titulo">Crear Cluster:</p>
+            <div class="row justify-content-center">
+                <div class="col-10 rounded-lg me-2 rounded rounded-4 d-flex justify-content-center" style="background-color: #2a3d8fcc;">
+                    <div class="col-10 text-light">
+                        <p>Cluster Existentes:</p>
+                            {% for cluster in all_clusters %}
+                                <li>{{ cluster.name_cluster }}</li>
+                            {% endfor %}
+                        <form action="{{ url_for('create_cluster') }}" class="form-control border-0 text-light bg-transparent" method="post">
+                            <label for="cluster_name" class="mt-2">Inserte el nombre del nuevo cluster a crear:</label>
+                            <input class="form-control mt-2" type="text" placeholder="clusters's name" name="name_cluster" id="cluster_name" required>
+                            <input class="btn btn-light mt-2" type="submit" value="Create"/>
+                        </form>
                     </div>
+                </div>
+            </div>
         </div>
     </div>
     <footer class="text-center text-white fixed-bottom" style="background-color: #21081acc;">

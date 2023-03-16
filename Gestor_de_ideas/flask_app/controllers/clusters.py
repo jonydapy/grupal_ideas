@@ -15,6 +15,15 @@ def cluster():
         return  render_template('create_cluster.html', all_clusters = Cluster.get_all(), user_data = user_data)
     else:
         return redirect('/')
+    
+@app.route('/cluster/create-now', methods = ['GET','POST']) # Jony
+def create_cluster():
+    if request.method == 'POST':
+        data = dict(request.form)
+        Cluster.save(data)
+        return redirect('/cluster/create')
+    return redirect('/')
+
 
 
 

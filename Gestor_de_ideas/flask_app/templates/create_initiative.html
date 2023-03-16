@@ -90,9 +90,9 @@
         <div class="cuadrogenerico_der">
             <p class="titulo">Crear iniciativas:</p>
                     <div class="row justify-content-center">
-                        <div class="col-10 rounded-lg me-2 rounded rounded-4" style="background-color: #2a3d8fcc;">
+                        <div class="col-10 rounded-lg me-2 rounded rounded-4 d-flex justify-content-center" style="background-color: #2a3d8fcc;">
                             <div class="col-10 m-0 p-0">
-                                <form action="{{ url_for('create_initiative') }}" class="form-control border-0 text-light" style="background-color: #2a3d8fcc;" method="post">
+                                <form action="{{ url_for('create_initiative') }}" class="form-control border-0 text-light bg-transparent" method="post">
                                     <input type="hidden" value="1" name="id_rating">
                                     <label for="select_cluster" class="">Seleccione el cluster a cual pertenece la iniciativa:</label>
                                     <select class="form-control mt-2" id="select_cluster" name="id_cluster">
