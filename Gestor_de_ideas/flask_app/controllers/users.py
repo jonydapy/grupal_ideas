@@ -82,25 +82,6 @@ def update_roles():
 def logout():
     session.clear()
     return redirect('/')
-
-@app.route('/initiative/create') # Jony
-def initiative():
-    if session.get('id') == None:
-        return redirect('/')
-    if session.get('type_user') == 1 or session.get('type_user') == 4:
-        user_data = User.get_by_id(session)
-        print(Cluster.get_all())
-        return  render_template('create_initiative.html', all_clusters = Cluster.get_all(), user_data = user_data)
-    else:
-        return redirect('/')
-    
-@app.route('/initiative/create-now', methods = ['GET','POST']) # Jony
-def create_initiative():
-    if request.method == 'POST':
-        data = dict(request.form)
-        Initiative.save(data)
-        return redirect('/initiative/create')
-    return redirect('/')
     
 @app.route('/campaings') # Jony
 def view_campaings():
