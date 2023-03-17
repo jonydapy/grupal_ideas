@@ -24,6 +24,12 @@ class Initiative:
         return initiatives
     
     @classmethod
+    def get_by_id(cls, data):
+        query = "SELECT * FROM initiative WHERE idinitiative = %(id_initiative)s;"
+        results = connectToMySQL(cls.db_name).query_db(query, data)
+        return cls(results[0])
+    
+    @classmethod
     def count_initiatives(cls):
         query = "select count(*) from initiative;"
         result = connectToMySQL(cls.db_name).query_db(query)

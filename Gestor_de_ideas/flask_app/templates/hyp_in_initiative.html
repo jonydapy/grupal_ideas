@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Create Cluster</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="bodygenerico">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2a3d8fcc;">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Left elements -->
+            <h4 class="titulo navbar-nav me-auto mb-2 mb-lg-0">Proyecto Ideas</h4>
+            <!-- end Left elements -->
+            </div>
+            
+            <!-- Right elements -->
+            <div>
+                <ul class="list navbar-nav me-auto mb-2 mb-lg-0">
+                    <li><a href="{{ url_for('dashboard') }}">Home</a></li>
+                    <li><a href="#" class="current">Profile</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                </ul>
+            </div>
+            <!-- end Right elements -->
+        </div>
+        <!-- end Container wrapper -->
+    </nav>
+    <div class="containergenerico_izq">
+        <div class="cuadrogenerico_izq">
+            <p class="titulo">Accesos directos:</p>
+            {% if user_data.type_user == 1 %}
+            <div class="col">
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Strategies</a>
+            </div>
+            <div class="col mt-1" >
+                <a href="{{ url_for('vercampaigns') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Campaigns</a>
+            </div>
+            <div class="col mt-1" >
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Rate initiatives</a>
+            </div>
+            <div class="col mt-1" >
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Cluster ideas</a>
+            </div>
+            <div class="col mt-1" >
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Create Campaigns</a>
+            </div>
+            <div class="col mt-1" >
+                <a href="{{ url_for('initiative') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Create Initiatives</a>
+            </div>
+            <div class="col mt-1" >
+                <a href="{{ url_for('list_of_initiatives') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Initiatives</a>
+            </div>
+            <div class="col mt-1" >
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Hip and Exp</a>
+            </div>
+            <div class="col mt-1" >
+                <a href="{{ url_for('adm_roles') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Roles</a>
+            </div>
+            {% elif user_data.type_user == 4 %}
+            <div class="col">
+                <a href="{{ url_for('view_campaings') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Campaigns</a>
+            </div>
+            <div class="col mt-1">
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Cluster ideas</a>
+            </div>
+            <div class="col mt-1">
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Clusters</a>
+            </div>
+            <div class="col mt-1">
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Create Initiatives</a>
+            </div>
+            <div class="col mt-1">
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Initiatives</a>
+            </div>
+            <div class="col mt-1" >
+                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Hip and Exp</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="containergenerico_der">
+        <div class="cuadrogenerico_der">
+            <p class="titulo">Hypothesis and Experiments from : {{ initiative_name.name }}</p>
+            <div class="row justify-content-center">
+                <div class="col-10 rounded-lg me-2 rounded rounded-4 d-flex justify-content-center" style="background-color: #2a3d8fcc;">
+                    <div class="col-10 text-light">
+                        <p>Cluster Existentes:</p>
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                {% for message in messages %}
+                                <div class="text-center text-white bg-danger col-12 rounded my-3">
+                                    <p>{{message}}</p>
+                                </div >
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                        {% for cluster in all_clusters %}
+                        <a href="/cluster/ideas/{{ cluster.idcluster }}" class="text-decoration-none text-light btn btn-secondary my-1 mx-1">{{ cluster.name_cluster }}</a>
+                        {% endfor %}
+                        <form action="{{ url_for('create_cluster') }}" class="form-control border-0 text-light bg-transparent" method="post">
+                            <label for="cluster_name" class="mt-2">Inserte el nombre del nuevo cluster a crear:</label>
+                            <input class="form-control mt-2" type="text" placeholder="clusters's name" name="name_cluster" id="cluster_name" required>
+                            <input class="btn btn-light mt-2" type="submit" value="Create"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center text-white fixed-bottom" style="background-color: #21081acc;">
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">© 2023 Copyright: Mathias Villalba, Luis Roche, Joel Maidana, Jonattan Da Silva.
+        </div>
+        <!-- Copyright -->
+    </footer>
+</body>
+</html>

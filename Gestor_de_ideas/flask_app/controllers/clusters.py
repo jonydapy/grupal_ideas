@@ -25,7 +25,7 @@ def create_cluster():
         return redirect('/cluster/create')
     return redirect('/')
 
-@app.route('/cluster/ideas/<int:cluster>') # Jony
+@app.route('/cluster/ideas/<int:cluster>')
 def initiative_in_cluster(cluster):
     if session.get('id') == None:
         return redirect('/')
