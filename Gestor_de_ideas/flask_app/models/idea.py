@@ -37,6 +37,11 @@ class Idea:
             ideas.append( (row))
         return ideas
     
+    @classmethod # Jony
+    def update_cluster(cls, data):
+        query = "update ideas set id_cluster = %(idcluster)s where (ididea = %(ididea)s);"
+        return connectToMySQL(cls.db_name).query_db(query, data)
+    
 #@classmethod
 #def save_comment(cls,data):
 #    query = "insert into comments (comment, user_id, ididea ) values (%(comment)s,%(user_id)s,%(ididea)s)"
