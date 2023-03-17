@@ -35,11 +35,11 @@ class Idea:
         for row in results:
             ideas.append( (row))
         return ideas
-    #@classmethod
-    #def save_comment(cls,data):
-    #    query = "insert into comments (comment, user_id, ididea ) values (%(comment)s,%(user_id)s,%(ididea)s)"
-    #    return connectToMySQL(cls.db_name).query_db(query,data)
-        
+    
+#@classmethod
+#def save_comment(cls,data):
+#    query = "insert into comments (comment, user_id, ididea ) values (%(comment)s,%(user_id)s,%(ididea)s)"
+#    return connectToMySQL(cls.db_name).query_db(query,data)
 
 #    @staticmethod
 #    def validate_initiative(initiative):

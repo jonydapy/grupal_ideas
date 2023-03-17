@@ -11,7 +11,7 @@ class Comment:
 
     @classmethod
     def savecomment(cls,data):
-        query = "INSERT INTO comments (comment, user_id, idea_id) VALUES (%(comment)s,%(user_id)s,%(idea_id)s);"
+        query = "INSERT INTO comments (comment, user_id, idea_id) VALUES (%(comment)s,%(id)s,%(ididea)s);"
         return connectToMySQL(cls.db_name).query_db(query,data)
 
     @classmethod

@@ -26,15 +26,16 @@ def commentidea(ididea):
     return render_template('comments.html', ideas=Idea.get_by_ididea(data), comments=comments)
 
 
-@app.route('/savecomment/<int:ididea>')
+@app.route('/savecomment/<int:ididea>',methods=['post'])
 def savecomment(ididea):
-    if session.get('user_id') == None:
-            return redirect('/')
-    else:
+    # if session.get('id') == None:
+    #        return redirect('/')
+    #else:
         data={
             "comment":request.form['comment'],
-            "user_id": session["user_id"],
+            "id": session["id"],
             "ididea": ididea
         }
-        Idea.save_comment(data)
-    return redirect ("comments.html")
+        Comment.savecomment(data)
+        comments= Comment.get_allcommentsporidea(data)
+        return render_template('comments.html', ideas=Idea.get_by_ididea(data), comments=comments)

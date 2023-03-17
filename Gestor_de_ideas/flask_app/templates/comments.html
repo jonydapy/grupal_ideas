@@ -50,7 +50,7 @@
                                 <strong>Creador:</strong> {{idea.first_name}} {{idea.last_name}}
                                 <br>
                                 <strong>Descripcion:</strong> {{idea.content}}
-                                {% endfor %}
+                                
                                 <br>
                                 <strong>Comentarios:</strong>
                                 {% for comment in comments %}
@@ -58,14 +58,16 @@
                                 {% endfor %}
                             </div>
                         </div>
-                        <!--  <form action="#" method="post"> -->
+                        <label class="subtitulo" for="description">Añade tu comentario</label>
+                        <form action="/savecomment/{{idea.ididea}}" method="post">
                         <div class="form-group">
                             <br>
-                            <input type="text" name="title" class="form-control">
+                            <input type="text" name="comment" class="form-control">
                             <br>
-                            <input type="submit" value="Enviar" class="btn btn-primary">
+                            <input  type="submit" value="Enviar comentario" class="btn btn-primary">
                         </div>
                         </form>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
