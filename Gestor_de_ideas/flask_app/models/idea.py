@@ -7,13 +7,14 @@ class Idea:
         self.ididea = data['ididea']
         self.content = data['content']
         self.user_id = data['user_id']
-        self.id_campaing = data['id_campaign']
+        self.id_campaign = data['id_campaign']
         self.id_cluster = data['id_cluster']
         #self.comment = data['comment']
 
     @classmethod
     def save(cls,data):
-        query = "INSERT INTO ideas (content, user_id, id_campaing, id_cluster) VALUES (%(content)s,%(user_id)s,%(id_campaing)s,%(id_cluster)s);"
+        query = "INSERT INTO ideas (content, user_id, id_campaign, id_cluster) VALUES (%(content)s,%(id)s,%(id_campaign)s,1 );"
+        print(query)
         return connectToMySQL(cls.db_name).query_db(query,data)
 
     @classmethod
