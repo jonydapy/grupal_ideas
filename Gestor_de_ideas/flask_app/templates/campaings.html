@@ -44,6 +44,12 @@
                         <br>
                         <input type="text" name="content" class="form-control">
                         <br>
+                        <select class="" id="select" name="idstrategy">
+                           
+                            {% for strategy in strategys %}
+                            <option value="{{ strategy['idstrategy'] }}" selected>{{ strategy['name'] }}</option>
+                            {% endfor %}
+                        </select>
                         <input  type="submit" value="Enviar Campaña" class="btn btn-primary">
                     </div>
                 </form>
