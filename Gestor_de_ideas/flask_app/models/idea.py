@@ -48,6 +48,12 @@ class Idea:
         result = connectToMySQL(cls.db_name).query_db(query)
         return result
     
+    @classmethod
+    def count_ideas_por_id(cls, data):
+        query = "select count(*) from ideas where user_id = %(user_id)s;"
+        result = connectToMySQL(cls.db_name).query_db(query, data)
+        return result
+    
 #@classmethod
 #def save_comment(cls,data):
 #    query = "insert into comments (comment, user_id, ididea ) values (%(comment)s,%(user_id)s,%(ididea)s)"

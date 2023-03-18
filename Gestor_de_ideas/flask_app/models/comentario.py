@@ -25,3 +25,15 @@ class Comment:
         for row in results:
             comments.append( (row))
         return comments
+    
+    @classmethod
+    def count_comentarios(cls):
+        query = "select count(*) from comments;"
+        result = connectToMySQL(cls.db_name).query_db(query)
+        return result
+    
+    @classmethod
+    def count_comentarios_por_id(cls, data):
+        query = "select count(*) from comments where user_id = %(user_id)s;"
+        result = connectToMySQL(cls.db_name).query_db(query, data)
+        return result

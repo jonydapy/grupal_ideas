@@ -7,6 +7,7 @@ from flask_app.models.initiative import Initiative
 from flask_app.models.type_users import Type_User
 #from flask_app.models.agendamiento import Agendamiento
 from flask_bcrypt import Bcrypt
+
 bcrypt = Bcrypt(app)
 
 @app.route('/vercampaigns')

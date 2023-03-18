@@ -131,29 +131,26 @@
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Cantidad de Hipótesis:</td>
-                                        <td>25</td>
+                                        <td>{{ count_hipexp[0]['count(*)'] }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="font-weight-bold">Cantidad de Experimentos:</td>
-                                        <td>10</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-weight-bold">Proyectos Aprobados:</td>
-                                        <td>2</td>
+                                        <td class="font-weight-bold">Cantidad de Comentarios:</td>
+                                        <td>{{ count_comentarios[0]['count(*)'] }}</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                         <div class="col-5 rounded-lg rounded rounded-4"  style="background-color: #2a3d8fcc;">
+                            <p class="mt-3 text-light">Tus datos:</p>
                             <table class="table table-borderless mt-3 text-center text-light">
                                 <tbody>
                                     <tr>
                                         <td class="font-weight-bold">Ideas aportadas:</td>
-                                        <td>3</td>
+                                        <td>{{ count_ideas_by_user[0]['count(*)'] }}</td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Comentarios en ideas:</td>
-                                        <td>15</td>
+                                        <td>{{ count_comentarios_usuario[0]['count(*)'] }}</td>
                                     </tr>
                                 </tbody>
                             </table>

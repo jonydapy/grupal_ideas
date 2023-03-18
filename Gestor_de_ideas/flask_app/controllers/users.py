@@ -6,6 +6,8 @@ from flask_app.models.type_users import Type_User
 from flask_app.models.cluster import Cluster
 from flask_app.models.campaing import Campaign
 from flask_app.models.idea import Idea
+from flask_app.models.hipexp import Hip_Exp
+from flask_app.models.comentario import Comment
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
@@ -55,10 +57,17 @@ def dashboard():
         count_campaings = Campaign.count_campaings()
         count_ideas = Idea.count_ideas()
         count_clusters = Cluster.count_cluster()
-        count_hipexp = None
-        count_ideas_by_user = None
-        count_comentarios = None
-    return render_template("user_dash.html", user_data = user_data, count_initiatives = count_initiatives, count_campaings = count_campaings, count_ideas = count_ideas, count_clusters = count_clusters)
+        count_hipexp = Hip_Exp.count_hip()
+        data_user_ideas ={
+            "user_id": session['id']
+        }
+        count_ideas_by_user = Idea.count_ideas_por_id(data_user_ideas)
+        count_comentarios = Comment.count_comentarios()
+        data_user_comment = {
+            "user_id": session['id']
+        }
+        count_comentarios_usuario = Comment.count_comentarios_por_id(data_user_comment)
+    return render_template("user_dash.html", user_data = user_data, count_initiatives = count_initiatives, count_campaings = count_campaings, count_ideas = count_ideas, count_clusters = count_clusters, count_hipexp = count_hipexp, count_comentarios = count_comentarios, count_comentarios_usuario = count_comentarios_usuario, count_ideas_by_user = count_ideas_by_user)
 
 @app.route('/admin/roles') # Jony
 def adm_roles():
