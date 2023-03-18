@@ -88,26 +88,20 @@
     </div>
     <div class="containergenerico_der">
         <div class="cuadrogenerico_der">
-            <p class="titulo">Crear Cluster:</p>
+            <p class="titulo">Crear Strategy:</p>
             <div class="row justify-content-center">
                 <div class="col-10 rounded-lg me-2 rounded rounded-4 d-flex justify-content-center" style="background-color: #2a3d8fcc;">
                     <div class="col-10 text-light">
-                        <p>Cluster Existentes:</p>
-                        {% with messages = get_flashed_messages() %}
-                            {% if messages %}
-                                {% for message in messages %}
-                                <div class="text-center text-white bg-danger col-12 rounded my-3">
-                                    <p>{{message}}</p>
-                                </div >
-                                {% endfor %}
-                            {% endif %}
-                        {% endwith %}
-                        {% for cluster in all_clusters %}
-                        <a href="/cluster/ideas/{{ cluster.idcluster }}" class="text-decoration-none text-light btn btn-secondary my-1 mx-1">{{ cluster.name_cluster }}</a>
+                        <p>Existing Strategies:</p>
+                        {% for strategy in all_strategies %}
+                        <p class="col-12 text-decoration-none text-light btn btn-secondary my-1 mx-1">{{ strategy.name }}</p>
                         {% endfor %}
-                        <form action="{{ url_for('create_cluster') }}" class="form-control border-0 text-light bg-transparent" method="post">
-                            <label for="cluster_name" class="mt-2">Inserte el nombre del nuevo cluster a crear:</label>
-                            <input class="form-control mt-2" type="text" placeholder="clusters's name" name="name_cluster" id="cluster_name" required>
+                        <form action="{{ url_for('create_strategy') }}" class="form-control border-0 text-light bg-transparent" method="post">
+                            <input type="hidden" value="11" name="id_user">
+                            <label for="strategy_name" class="mt-2">Strategy Title:</label>
+                            <input class="form-control mt-2" type="text" placeholder="Strategy Title" name="name" id="strategy_name" required>
+                            <label for="strategy_name" class="mt-2">Strategy Description:</label>
+                            <input class="form-control mt-2" type="text" placeholder="Strategy Description" name="description" id="strategy_name" required>
                             <input class="btn btn-light mt-2" type="submit" value="Create"/>
                         </form>
                     </div>
