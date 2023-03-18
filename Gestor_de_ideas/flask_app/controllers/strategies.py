@@ -8,7 +8,7 @@ from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
 @app.route('/strategies/create') # Jony
-def strategie():
+def strategy():
     if session.get('id') == None:
         return redirect('/')
     if session.get('type_user') == 1 or session.get('type_user') == 2:
