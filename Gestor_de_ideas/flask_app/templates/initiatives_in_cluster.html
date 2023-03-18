@@ -43,45 +43,45 @@
             <div class="col mt-1" >
                 <a href="{{ url_for('view_campaings') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Campaigns</a>
             </div>
-            <div class="col mt-1" >
+            <!-- <div class="col mt-1" >
                 <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Rate initiatives</a>
-            </div>
+            </div> -->
             <div class="col mt-1" >
-                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Cluster ideas</a>
+                <a href="{{ url_for('cluster_ideas') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Cluster ideas</a>
             </div>
-            <div class="col mt-1" >
+            <!--  <div class="col mt-1" >
                 <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Create Campaigns</a>
+            </div> -->
+            <div class="col mt-1" >
+                <a href="{{ url_for('initiative') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Create Initiatives</a>
             </div>
             <div class="col mt-1" >
-                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Create Initiatives</a>
+                <a href="{{ url_for('list_of_initiatives') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Initiatives</a>
             </div>
             <div class="col mt-1" >
-                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Initiatives</a>
+                <a href="{{ url_for('hypothesis') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Hip and Exp</a>
             </div>
             <div class="col mt-1" >
-                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Hip and Exp</a>
-            </div>
-            <div class="col mt-1" >
-                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Strategies</a>
+                <a href="{{ url_for('strategy') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Strategies</a>
             </div>
             {% elif user_data.type_user == 4 %}
             <div class="col">
                 <a href="{{ url_for('view_campaings') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Campaigns</a>
             </div>
             <div class="col mt-1">
-                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Cluster ideas</a>
+                <a href="{{ url_for('cluster_ideas') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Cluster ideas</a>
             </div>
             <div class="col mt-1">
-                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Clusters</a>
-            </div>
-            <div class="col mt-1">
-                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Create Initiatives</a>
-            </div>
-            <div class="col mt-1">
-                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Initiatives</a>
+                <a href="{{ url_for('cluster') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Create Cluster</a>
             </div>
             <div class="col mt-1" >
-                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Hip and Exp</a>
+                <a href="{{ url_for('initiative') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Create Initiatives</a>
+            </div>
+            <div class="col mt-1" >
+                <a href="{{ url_for('list_of_initiatives') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Initiatives</a>
+            </div>
+            <div class="col mt-1" >
+                <a href="{{ url_for('hypothesis') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Hip and Exp</a>
             </div>
             {% endif %}
         </div>
