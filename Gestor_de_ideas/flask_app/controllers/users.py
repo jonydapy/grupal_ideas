@@ -4,6 +4,8 @@ from flask_app.models.user import User
 from flask_app.models.initiative import Initiative
 from flask_app.models.type_users import Type_User
 from flask_app.models.cluster import Cluster
+from flask_app.models.campaing import Campaign
+from flask_app.models.idea import Idea
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
@@ -50,9 +52,13 @@ def dashboard():
         print(session)
         user_data = User.get_by_id(session)
         count_initiatives = Initiative.count_initiatives()
-        print(count_initiatives)
-        print(user_data)
-    return render_template("user_dash.html", user_data = user_data, count_initiatives = count_initiatives)
+        count_campaings = Campaign.count_campaings()
+        count_ideas = Idea.count_ideas()
+        count_clusters = None
+        count_hipexp = None
+        count_ideas_by_user = None
+        count_comentarios = None
+    return render_template("user_dash.html", user_data = user_data, count_initiatives = count_initiatives, count_campaings = count_campaings, count_ideas = count_ideas)
 
 @app.route('/admin/roles') # Jony
 def adm_roles():

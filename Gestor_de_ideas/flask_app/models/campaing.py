@@ -22,3 +22,9 @@ class Campaign:
         query = "INSERT INTO campaigns (name_campaing, id_strategy) VALUES (%(campaign)s, 1);"
         print(query)
         return connectToMySQL(cls.db_name).query_db(query,data)
+        
+    @classmethod
+    def count_campaings(cls):
+        query = "select count(*) from campaigns;"
+        result = connectToMySQL(cls.db_name).query_db(query)
+        return result

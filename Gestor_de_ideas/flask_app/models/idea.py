@@ -42,6 +42,12 @@ class Idea:
         query = "update ideas set id_cluster = %(idcluster)s where (ididea = %(ididea)s);"
         return connectToMySQL(cls.db_name).query_db(query, data)
     
+    @classmethod
+    def count_ideas(cls):
+        query = "select count(*) from ideas;"
+        result = connectToMySQL(cls.db_name).query_db(query)
+        return result
+    
 #@classmethod
 #def save_comment(cls,data):
 #    query = "insert into comments (comment, user_id, ididea ) values (%(comment)s,%(user_id)s,%(ididea)s)"
