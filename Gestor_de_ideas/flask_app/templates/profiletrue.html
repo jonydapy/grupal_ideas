@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Others</title>
+	<title>Profile True</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
@@ -35,120 +35,18 @@
     <div class="containergenerico_izq">
         <div class="cuadrogenerico_izq">
             <p class="titulo">Accesos directos:</p>
-            {% if user_data.type_user == 1 %}
-            <div class="col">   
-                <a href="{{ url_for('strategy') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Strategies</a>
-            </div>
-            <div class="col mt-1" >
-                <a href="{{ url_for('vercampaigns') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Campaigns</a>
-            </div>
-            <!-- <div class="col mt-1" >
-                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Rate initiatives</a>
-            </div> -->
-            <div class="col mt-1" >
-                <a href="{{ url_for('cluster_ideas') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Cluster ideas</a>
-            </div>
-            <div class="col mt-1" >
-                <a href="{{ url_for('initiative') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Create Initiatives</a>
-            </div>
-            <div class="col mt-1" >
-                <a href="{{ url_for('list_of_initiatives') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Initiatives</a>
-            </div>
-            <div class="col mt-1" >
-                <a href="{{ url_for('hypothesis') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Hip and Exp</a>
-            </div>
-            <div class="col mt-1" >
-                <a href="{{ url_for('adm_roles') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Roles</a>
-            </div>
-            {% elif user_data.type_user == 2 %}
-            <div class="col">
-                <a href="{{ url_for('strategy') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Strategies</a>
-            </div>
-            <div class="col mt-1" >
-                <a href="{{ url_for('vercampaigns') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Campaigns</a>
-            </div>
-            <div class="col mt-1" >
-                <a href="{{ url_for('list_of_initiatives') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Initiatives</a>
-            </div>
-            {% elif user_data.type_user == 3 %}
-            <div class="col mt-1" >
-                <a href="{{ url_for('vercampaigns') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Campaigns</a>
-            </div>
-            <div class="col mt-1" >
-                <a href="{{ url_for('list_of_initiatives') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Initiatives</a>
-            </div>
-            <!-- <div class="col mt-1" >
-                <a href="#" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Rate initiatives</a>
-            </div> -->
-            {% elif user_data.type_user == 4 %}
-            <div class="col">
-                <a href="{{ url_for('vercampaigns') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Campaigns</a>
-            </div>
-            <div class="col mt-1">
-                <a href="{{ url_for('cluster_ideas') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Cluster ideas</a>
-            </div>
-            <div class="col mt-1">
-                <a href="{{ url_for('cluster') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Clusters</a>
-            </div>
-            <div class="col mt-1">
-                <a href="{{ url_for('initiative') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Create Initiatives</a>
-            </div>
-            <div class="col mt-1">
-                <a href="{{ url_for('list_of_initiatives') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Initiatives</a>
-            </div>
-            <div class="col mt-1" >
-                <a href="{{ url_for('hypothesis') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">Hip and Exp</a>
-            </div>
-            {% else %}
-            <div class="col mt-1">
-                <a href="{{ url_for('vercampaigns') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Campaigns</a>
-            </div>
-            <div class="col mt-1">
-                <a href="{{ url_for('list_of_initiatives') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Initiatives</a>
-            </div>
-            {% endif %}
+
         </div>
     </div>
     <div class="containergenerico_der">
         <div class="cuadrogenerico_der">
-            <p class="titulo">Datos Generales</p>
-                    <div class="row justify-content-center">
-                        <div class="col-5 rounded-lg me-2 rounded rounded-4" style="background-color: #2a3d8fcc;">
-                            <table class="table table-borderless mt-3 text-center text-light">
-                                <tbody>
-                                    <tr>
-                                        <td class="font-weight-bold">Cantidad de campañas:</td>
-                                        <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-weight-bold">Ideas Generadas:</td>
-                                        <td>500</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-weight-bold">Cantidad de Clusters:</td>
-                                        <td>510</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-weight-bold">Cantidad de Iniciativas:</td>
-                                        <td>{{ count_initiatives[0]['count(*)'] }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-weight-bold">Cantidad de Hipótesis:</td>
-                                        <td>25</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-weight-bold">Cantidad de Experimentos:</td>
-                                        <td>10</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-weight-bold">Proyectos Aprobados:</td>
-                                        <td>2</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    
-                    </div>
+            <p class="titulo">Profile True</p>
+            <form action="#" method="post">
+                <p class="titulo">Profile True</p>
+                <input class="input" type="text" placeholder="Enter bla bla" name="text" required><br>
+                <input class="input" type="text" placeholder="Enter bla bla" name="text" required><br>
+                <input class="input" type="submit" value="Enviar" /><br>
+            </form>
         </div>
     </div>
     <footer class="text-center text-white fixed-bottom" style="background-color: #21081acc;">
