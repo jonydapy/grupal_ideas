@@ -15,8 +15,21 @@ def verideadecampaign(id_campaign):
     data = {
         "id_campaign": id_campaign
     }
-    session['id_campaign']=id_campaign
     return render_template('ideas.html', ideas=Idea.get_allideasporusuario(data))
+
+@app.route('/verideas/guardar', methods = ['GET','POST']) # Jony
+def save_idea():
+    if request.method == 'POST':
+        data={
+            "content":request.form['content'],
+            "id": session["id"],
+            "id_campaign": request.form['id_campaign']
+        }
+        pagina = request.form['id_campaign']
+        Idea.save(data)
+        return redirect('/verideas/{}'.format(pagina))
+    return redirect('/')
+
 
 @app.route('/verideaporid/<int:ididea>')
 def commentidea(ididea):
@@ -32,6 +45,7 @@ def savecomment(ididea):
     # if session.get('id') == None:
     #        return redirect('/')
     #else:
+
         data={
             "comment":request.form['comment'],
             "id": session["id"],
@@ -40,6 +54,7 @@ def savecomment(ididea):
         Comment.savecomment(data)
         comments= Comment.get_allcommentsporidea(data)
         return render_template('comments.html', ideas=Idea.get_by_ididea(data), comments=comments)
+        
 
 @app.route('/saveidea',methods=['post'])
 def save():
@@ -55,4 +70,5 @@ def save():
             "id_campaign": session['id_campaign']
         }
         Idea.save(data)
-        return render_template('ideas.html', ideas=Idea.get_allideasporusuario(datab))
+        #return render_template('ideas.html', ideas=Idea.get_allideasporusuario(datab))
+        return redirect("/verideas/", ididea = session['id_campaign'])

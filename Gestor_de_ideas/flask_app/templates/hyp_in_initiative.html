@@ -90,25 +90,33 @@
         <div class="cuadrogenerico_der">
             <p class="titulo">Hypothesis and Experiments from : {{ initiative_name.name }}</p>
             <div class="row justify-content-center">
-                <div class="col-10 rounded-lg me-2 rounded rounded-4 d-flex justify-content-center" style="background-color: #2a3d8fcc;">
-                    <div class="col-10 text-light">
-                        <p>Cluster Existentes:</p>
-                        {% with messages = get_flashed_messages() %}
-                            {% if messages %}
-                                {% for message in messages %}
-                                <div class="text-center text-white bg-danger col-12 rounded my-3">
-                                    <p>{{message}}</p>
-                                </div >
+                <div class="col-12 rounded-lg me-2 rounded rounded-4 d-flex justify-content-center" style="background-color: #2a3d8fcc;">
+                    <div class="col-12 text-light">
+                        <table class="table text-light">
+                            <thead>
+                                <th>Hypothesis</th>
+                                <th>Experiment</th>
+                                <th>Learnings</th>
+                            </thead>
+                            <tbody>
+                                {% for hip in hip_exp %}
+                                <tr>
+                                    <td>{{ hip['hypothesis'] }}</td>
+                                    <td>{{ hip['experiment'] }}</td>
+                                    <td>{{ hip['learning'] }}</td>
+                                </tr>
                                 {% endfor %}
-                            {% endif %}
-                        {% endwith %}
-                        {% for cluster in all_clusters %}
-                        <a href="/cluster/ideas/{{ cluster.idcluster }}" class="text-decoration-none text-light btn btn-secondary my-1 mx-1">{{ cluster.name_cluster }}</a>
-                        {% endfor %}
-                        <form action="{{ url_for('create_cluster') }}" class="form-control border-0 text-light bg-transparent" method="post">
-                            <label for="cluster_name" class="mt-2">Inserte el nombre del nuevo cluster a crear:</label>
-                            <input class="form-control mt-2" type="text" placeholder="clusters's name" name="name_cluster" id="cluster_name" required>
-                            <input class="btn btn-light mt-2" type="submit" value="Create"/>
+                            </tbody>
+                        </table>
+                        <form action="{{ url_for('save_hyp') }}" class="form-control border-0 text-light bg-transparent" method="post">
+                            <input type="hidden" value="{{ initiative_name.idinitiative }}" name="id_initiative">
+                            <label for="cluster_name" class="mt-2">Write your hypothesis:</label>
+                            <input class="form-control mt-2" type="text" placeholder="Hypothesis" name="hypothesis" id="cluster_name" required>
+                            <label for="cluster_name" class="mt-2">Write your Experiment:</label>
+                            <input class="form-control mt-2" type="text" placeholder="Experiment" name="experiment" id="cluster_name" required>
+                            <label for="cluster_name" class="mt-2">Write your learnings:</label>
+                            <input class="form-control mt-2" type="text" placeholder="Learnings" name="learning" id="cluster_name" required>
+                            <input class="btn btn-light mt-2" type="submit" value="Add"/>
                         </form>
                     </div>
                 </div>

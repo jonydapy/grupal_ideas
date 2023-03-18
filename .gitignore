@@ -48,3 +48,13 @@ Gestor_de_ideas/flask_app/controllers/__pycache__/ideas.cpython-311.pyc
 Gestor_de_ideas/flask_app/controllers/__pycache__/users.cpython-311.pyc
 Gestor_de_ideas/flask_app/models/__pycache__/cluster.cpython-311.pyc
 Gestor_de_ideas/flask_app/models/__pycache__/idea.cpython-311.pyc
+Gestor_de_ideas/flask_app/controllers/__pycache__/clusters.cpython-310.pyc
+Gestor_de_ideas/flask_app/controllers/__pycache__/hipexps.cpython-310.pyc
+Gestor_de_ideas/flask_app/controllers/__pycache__/ideas.cpython-310.pyc
+Gestor_de_ideas/flask_app/controllers/__pycache__/ideas.cpython-311.pyc
+Gestor_de_ideas/flask_app/controllers/hipexps.py
+Gestor_de_ideas/flask_app/controllers/ideas.py
+Gestor_de_ideas/flask_app/models/__pycache__/hipexp.cpython-310.pyc
+Gestor_de_ideas/flask_app/models/hipexp.py
+Gestor_de_ideas/flask_app/templates/hyp_in_initiative.html
+Gestor_de_ideas/flask_app/templates/ideas.html
