@@ -89,4 +89,16 @@ def view_campaings():
         return redirect('/')
     return render_template('campaings.html')
 
+@app.route('/profile/update', methods = ['POST'])
+def update_profile():
+    if session.get('id') == None:
+            return redirect('/')
+    data = {
+        "iduser" : session['id'],
+        "first_name" : request.form['first_name'],
+        "last_name" : request.form['last_name'],
+        "email" : request.form['email']
+    }
+    User.update_profile(data)
+    return redirect('/dashboard')
 

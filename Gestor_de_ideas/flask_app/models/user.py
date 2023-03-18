@@ -78,7 +78,10 @@ class User:
         query = "update users set type_user = %(idtipo)s where iduser = %(iduser)s;"
         return connectToMySQL(cls.db_name).query_db(query, data)
     
-
+    @classmethod
+    def update_profile(cls, data): 
+        query = "update users set first_name = %(first_name)s , last_name = %(last_name)s , email = %(email)s  where iduser = %(iduser)s;"
+        return connectToMySQL(cls.db_name).query_db(query, data)
     
 
     @staticmethod

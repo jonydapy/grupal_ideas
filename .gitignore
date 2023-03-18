@@ -78,3 +78,6 @@ Gestor_de_ideas/flask_app/controllers/__pycache__/ideas.cpython-311.pyc
 Gestor_de_ideas/flask_app/controllers/__pycache__/campaings.cpython-311.pyc
 Gestor_de_ideas/flask_app/config/__pycache__/mysqlconnection.cpython-311.pyc
 Gestor_de_ideas/flask_app/__pycache__/__init__.cpython-311.pyc
+Gestor_de_ideas/flask_app/controllers/__pycache__/users.cpython-311.pyc
+Gestor_de_ideas/flask_app/controllers/__pycache__/users.cpython-311.pyc
+Gestor_de_ideas/flask_app/models/__pycache__/user.cpython-311.pyc
