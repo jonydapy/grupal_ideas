@@ -95,7 +95,15 @@ def view_campaings():
         return redirect('/')
     return render_template('campaings.html')
 
-@app.route('/profile/update', methods = ['POST'])
+@app.route('/profile')
+def view_profile():
+    if session.get('id') == None:
+        return redirect('/')
+    users= User.get_by_id(session)
+    return render_template('profiletrue.html', users= users)
+
+
+@app.route('/profile/update', methods = ['POST', 'GET'])
 def update_profile():
     if session.get('id') == None:
             return redirect('/')
@@ -105,6 +113,7 @@ def update_profile():
         "last_name" : request.form['last_name'],
         "email" : request.form['email']
     }
+
     User.update_profile(data)
     return redirect('/dashboard')
 

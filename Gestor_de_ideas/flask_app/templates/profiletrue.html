@@ -40,11 +40,11 @@
     </div>
     <div class="containergenerico_der">
         <div class="cuadrogenerico_der">
-            <p class="titulo">Profile True</p>
-            <form action="#" method="post">
-                <p class="titulo">Profile True</p>
-                <input class="input" type="text" placeholder="Enter bla bla" name="text" required><br>
-                <input class="input" type="text" placeholder="Enter bla bla" name="text" required><br>
+            <p class="titulo">Editar Perfil</p>
+            <form action="{{ url_for('update_profile') }}" method="post">
+                <input class="input" type="text" value="{{users.first_name}}" name="first_name" required><br>
+                <input class="input" type="text" value="{{users.last_name}}" name="last_name" required><br>
+                <input class="input" type="text" value="{{users.email}}" name="email" required><br>
                 <input class="input" type="submit" value="Enviar" /><br>
             </form>
         </div>

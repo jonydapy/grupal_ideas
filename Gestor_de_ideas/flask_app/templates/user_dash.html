@@ -24,7 +24,7 @@
             <div>
                 <ul class="list navbar-nav me-auto mb-2 mb-lg-0">
                         <li><a href="{{ url_for('dashboard') }}" class="current">Home</a></li>
-                        <li><a href="#" class="current">Profile</a></li>
+                        <li><a href="{{ url_for('view_profile') }}" class="current">Profile</a></li>
                         <li><a href="{{ url_for('logout') }}">Logout</a></li>
                 </ul>
             </div>
@@ -102,9 +102,6 @@
             {% else %}
             <div class="col mt-1">
                 <a href="{{ url_for('vercampaigns') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Campaigns</a>
-            </div>
-            <div class="col mt-1">
-                <a href="{{ url_for('list_of_initiatives') }}" class="btn btn-primary rounded-pill font-weight-bold text-decoration-none h5 col-10">View Initiatives</a>
             </div>
             {% endif %}
         </div>
