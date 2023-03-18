@@ -12,6 +12,8 @@ bcrypt = Bcrypt(app)
 
 @app.route('/verideas/<int:id_campaign>')
 def verideadecampaign(id_campaign):
+    if session.get('id') == None:
+        return redirect('/')
     data = {
         "id_campaign": id_campaign
     }
@@ -30,6 +32,8 @@ def verideadecampaign(id_campaign):
 @app.route('/verideas/guardar', methods = ['GET','POST']) # Jony
 def save_idea():
     if request.method == 'POST':
+        if session.get('id') == None:
+            return redirect('/')
         data={
             "content":request.form['content'],
             "id": session["id"],
@@ -43,6 +47,8 @@ def save_idea():
 
 @app.route('/verideaporid/<int:ididea>')
 def commentidea(ididea):
+    if session.get('id') == None:
+        return redirect('/')
     data = {
         "ididea": ididea
     }
@@ -52,10 +58,8 @@ def commentidea(ididea):
 
 @app.route('/savecomment/<int:ididea>',methods=['post'])
 def savecomment(ididea):
-    # if session.get('id') == None:
-    #        return redirect('/')
-    #else:
-
+        if session.get('id') == None:
+            return redirect('/')
         data={
             "comment":request.form['comment'],
             "id": session["id"],

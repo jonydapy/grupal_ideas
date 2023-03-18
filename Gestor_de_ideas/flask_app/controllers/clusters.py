@@ -20,6 +20,8 @@ def cluster():
 @app.route('/cluster/create-now', methods = ['GET','POST']) # Jony
 def create_cluster():
     if request.method == 'POST':
+        if session.get('id') == None:
+            return redirect('/')
         data = dict(request.form)
         Cluster.save(data)
         return redirect('/cluster/create')
@@ -57,6 +59,8 @@ def cluster_ideas():
 @app.route('/cluster/ideas/cluster-this', methods = ['GET', 'POST']) # Jony
 def cluster_this():
     if request.method == 'POST':
+        if session.get('id') == None:
+            return redirect('/')
         data = {
             "idcluster" : request.form['idcluster'],
             "ididea" : request.form['ididea']

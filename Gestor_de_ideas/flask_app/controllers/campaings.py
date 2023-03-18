@@ -11,6 +11,8 @@ bcrypt = Bcrypt(app)
 
 @app.route('/vercampaigns')
 def vercampaigns():
+    if session.get('id') == None:
+        return redirect('/')
     campaigns = Campaign.get_allcampaing()
     print(campaigns)
     return render_template('campaings.html', campaigns=campaigns)
@@ -18,6 +20,8 @@ def vercampaigns():
 @app.route('/campaign/guardar', methods = ['GET','POST']) # Joel
 def save_campaing():
     if request.method == 'POST':
+        if session.get('id') == None:
+            return redirect('/')
         data={
             "campaign":request.form['content'],
         }

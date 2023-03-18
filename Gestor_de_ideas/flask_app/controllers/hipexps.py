@@ -35,6 +35,8 @@ def see_hypothesis(id_ini):
 @app.route('/hypothesis/create', methods = ['GET','POST']) # Jony
 def save_hyp():
     if request.method == 'POST':
+        if session.get('id') == None:
+            return redirect('/')
         data = dict(request.form)
         print(data)
         pagina = request.form['id_initiative']

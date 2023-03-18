@@ -20,6 +20,8 @@ def strategy():
 @app.route('/strategies/create-now', methods = ['GET','POST']) # Jony
 def create_strategy():
     if request.method == 'POST':
+        if session.get('id') == None:
+            return redirect('/')
         data = dict(request.form)
         Strategy.save(data)
         return redirect('/strategies/create')

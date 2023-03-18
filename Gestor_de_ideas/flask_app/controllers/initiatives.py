@@ -21,6 +21,8 @@ def initiative():
 @app.route('/initiative/create-now', methods = ['GET','POST']) # Jony
 def create_initiative():
     if request.method == 'POST':
+        if session.get('id') == None:
+            return redirect('/')
         data = dict(request.form)
         Initiative.save(data)
         return redirect('/initiative/create')
