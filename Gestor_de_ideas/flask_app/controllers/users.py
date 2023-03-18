@@ -54,11 +54,11 @@ def dashboard():
         count_initiatives = Initiative.count_initiatives()
         count_campaings = Campaign.count_campaings()
         count_ideas = Idea.count_ideas()
-        count_clusters = None
+        count_clusters = Cluster.count_cluster()
         count_hipexp = None
         count_ideas_by_user = None
         count_comentarios = None
-    return render_template("user_dash.html", user_data = user_data, count_initiatives = count_initiatives, count_campaings = count_campaings, count_ideas = count_ideas)
+    return render_template("user_dash.html", user_data = user_data, count_initiatives = count_initiatives, count_campaings = count_campaings, count_ideas = count_ideas, count_clusters = count_clusters)
 
 @app.route('/admin/roles') # Jony
 def adm_roles():

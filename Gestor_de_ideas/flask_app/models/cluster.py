@@ -28,7 +28,7 @@ class Cluster:
         return cls(results[0])
     
     @classmethod
-    def count_initiatives(cls):
+    def count_cluster(cls):
         query = "select count(*) from cluster;"
         result = connectToMySQL(cls.db_name).query_db(query)
         return result
