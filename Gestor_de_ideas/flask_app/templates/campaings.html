@@ -32,7 +32,7 @@
         </div>
         <!-- end Container wrapper -->
     </nav>
-    {% for campaign in campaigns %}
+<!--     {% for campaign in campaigns %}
     <a class="text" href="/verideas/{{campaign.idcampaign}}">
         <div class="container1">
             <div class="cuadro1">
@@ -41,7 +41,59 @@
             </div>
         </div>
     </a>
-    {% endfor %} <!-- traer todas las campañas para insertar ideas -->
+    {% endfor %} --> <!-- traer todas las campañas para insertar ideas -->
+
+
+
+    
+    
+    
+    
+    <div class="containergenerico">
+        <div class="cuadrogenerico">
+            <p class="titulo">Lista de Campañas</p>
+            <div class="col-11 p-4 my-4 bg-body-secondary bg-opacity-50 text-light mx-auto">
+
+    <table class="table table-bordered table-striped ">
+        <thead class="table-dark">
+            <th>Campaña Nro:</th>
+            <th>Nombre de la campaña</th>
+            <th>Acciones</th>
+        </thead>
+        <tbody>
+            {% for campaign in campaigns %}
+            <tr>
+                <td> {{ campaign.idcampaign }}</td>
+                <td> {{ campaign.name_campaing }}</td>
+                <td><a href="/verideas/{{campaign.idcampaign}}">Ver campaña</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+            </div>
+
+
+            <div class="col-11 p-4 my-4 bg-body-secondary bg-opacity-50 text-light mx-auto">
+            
+            <label class="titulo" for="description">Añade tu Campaña</label>
+            <form action="#" method="post">
+            <div class="form-group">
+                <label class="subtitulo" for="description">Nombre de la campaña</label>
+                <br>
+                <input type="text" name="content" class="form-control">
+                <br>
+                <input  type="submit" value="Enviar Campaña" class="btn btn-primary">
+            </div>
+            </form>
+            </div>
+
+        </div>
+    </div>
+
+
+
     <footer class="text-center text-white fixed-bottom" style="background-color: #21081acc;">
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">© 2023 Copyright: Mathias Villalba, Luis Roche, Joel Maidana, Jonattan Da Silva.
