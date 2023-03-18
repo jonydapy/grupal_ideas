@@ -13,7 +13,7 @@ class Hip_Exp:
     @classmethod
     def save(cls, data):
         query = "INSERT INTO hypothesis (hypothesis, experiment, learning, id_initiative) VALUES (%(hypothesis)s, %(experiment)s, %(learning)s, %(id_initiative)s);"
-        return connectToMySQL(cls.db_name).query_db(query,data)
+        return connectToMySQL(cls.db_name).query_db(query, data)
 
     @classmethod
     def get_all(cls):
@@ -33,8 +33,11 @@ class Hip_Exp:
     @classmethod
     def get_by_initiative(cls, data):
         query = "SELECT * FROM hypothesis WHERE id_initiative = %(id_initiative)s;"
-        results = connectToMySQL(cls.db_name).query_db(query,data)
-        return cls(results[0])
+        results = connectToMySQL(cls.db_name).query_db(query, data)
+        initiatives = []
+        for result in results:
+            initiatives.append( result )
+        return initiatives
     
     @classmethod
     def count_hip(cls):

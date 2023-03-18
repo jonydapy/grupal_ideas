@@ -27,7 +27,19 @@ def see_hypothesis(id_ini):
         data = {
             "id_initiative" : id_ini
         }
+        print(Hip_Exp.get_by_initiative(data))
         return  render_template('hyp_in_initiative.html', hip_exp = Hip_Exp.get_by_initiative(data), user_data = user_data, initiative_name = Initiative.get_by_id(data))
     else:
         return redirect('/')
+
+@app.route('/hypothesis/create', methods = ['GET','POST']) # Jony
+def save_hyp():
+    if request.method == 'POST':
+        data = dict(request.form)
+        print(data)
+        pagina = request.form['id_initiative']
+        Hip_Exp.save(data)
+        return redirect('/hypothesis/see/{}'.format(pagina))
+    return redirect('/')
+
 
