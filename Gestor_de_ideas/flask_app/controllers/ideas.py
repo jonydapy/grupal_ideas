@@ -32,6 +32,7 @@ def savecomment(ididea):
     # if session.get('id') == None:
     #        return redirect('/')
     #else:
+
         data={
             "comment":request.form['comment'],
             "id": session["id"],
@@ -40,6 +41,7 @@ def savecomment(ididea):
         Comment.savecomment(data)
         comments= Comment.get_allcommentsporidea(data)
         return render_template('comments.html', ideas=Idea.get_by_ididea(data), comments=comments)
+        
 
 @app.route('/saveidea',methods=['post'])
 def save():
@@ -55,4 +57,5 @@ def save():
             "id_campaign": session['id_campaign']
         }
         Idea.save(data)
-        return render_template('ideas.html', ideas=Idea.get_allideasporusuario(datab))
+        #return render_template('ideas.html', ideas=Idea.get_allideasporusuario(datab))
+        return redirect("/verideas/", ididea = session['id_campaign'])
