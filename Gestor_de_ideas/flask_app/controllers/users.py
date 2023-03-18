@@ -26,6 +26,8 @@ def register():
                 print(usuario)
                 session['id'] = usuario.iduser
                 session['type_user'] = usuario.type_user
+                session['nombre'] = usuario.first_name
+                session['apellido'] = usuario.last_name
                 return redirect('/dashboard')
         else:
             flash('Passwords must be the same!')
@@ -42,6 +44,8 @@ def log_user():
             return redirect('/')
         session["id"] = usuario.iduser
         session['type_user'] = usuario.type_user
+        session['nombre'] = usuario.first_name
+        session['apellido'] = usuario.last_name
         return redirect('/dashboard')
     else:
         return redirect('/')
