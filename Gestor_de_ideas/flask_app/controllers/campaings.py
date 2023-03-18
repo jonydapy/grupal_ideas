@@ -14,3 +14,13 @@ def vercampaigns():
     campaigns = Campaign.get_allcampaing()
     print(campaigns)
     return render_template('campaings.html', campaigns=campaigns)
+
+@app.route('/campaign/guardar', methods = ['GET','POST']) # Joel
+def save_campaing():
+    if request.method == 'POST':
+        data={
+            "campaign":request.form['content'],
+        }
+        Campaign.save(data)
+        return redirect('/vercampaigns')
+    return redirect('/')

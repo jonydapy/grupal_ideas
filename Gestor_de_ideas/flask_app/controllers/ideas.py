@@ -15,6 +15,7 @@ def verideadecampaign(id_campaign):
     data = {
         "id_campaign": id_campaign
     }
+    print(Idea.get_allideasporusuario(data))
     return render_template('ideas.html', ideas=Idea.get_allideasporusuario(data))
 
 @app.route('/verideas/guardar', methods = ['GET','POST']) # Jony

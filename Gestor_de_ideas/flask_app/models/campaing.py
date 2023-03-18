@@ -16,3 +16,9 @@ class Campaign:
         for row in results:
             campaigns.append(cls(row))
         return campaigns
+    
+    @classmethod
+    def save(cls,data):
+        query = "INSERT INTO campaigns (name_campaing, id_strategy) VALUES (%(campaign)s, 1);"
+        print(query)
+        return connectToMySQL(cls.db_name).query_db(query,data)
