@@ -15,8 +15,21 @@ def verideadecampaign(id_campaign):
     data = {
         "id_campaign": id_campaign
     }
-    session['id_campaign']=id_campaign
     return render_template('ideas.html', ideas=Idea.get_allideasporusuario(data))
+
+@app.route('/verideas/guardar', methods = ['GET','POST']) # Jony
+def save_idea():
+    if request.method == 'POST':
+        data={
+            "content":request.form['content'],
+            "id": session["id"],
+            "id_campaign": request.form['id_campaign']
+        }
+        pagina = request.form['id_campaign']
+        Idea.save(data)
+        return redirect('/verideas/{}'.format(pagina))
+    return redirect('/')
+
 
 @app.route('/verideaporid/<int:ididea>')
 def commentidea(ididea):
