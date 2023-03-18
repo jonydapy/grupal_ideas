@@ -10,7 +10,7 @@
 </head>
 
 <body class="bodycampaigns">
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2a3d8fcc;">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #2a3d8fcc;">
         <!-- Container wrapper -->
         <div class="container-fluid">
             <!-- Collapsible wrapper -->
@@ -64,50 +64,34 @@
         <br>
         
         <div class="cuadroauto">
-            <p class="titulo">Campañas</p>
-            <div class="col-11 p-4 my-4 bg-body-secondary bg-opacity-50 text-light mx-auto">
+            <p class="titulo2">Campañas</p>
+            <div class="row row-col-1 row-cols-sm-1 row-cols-md-4 row-cols-lg-4 mt-1 mb-1 mx-1">
+<!--             <div class="col-11 p-4 my-4 bg-body-secondary bg-opacity-50 text-light mx-auto"> -->
 
                 {% for campaign in campaigns %}
                 
-                <div class="col-md-3 mb-3">
-                    <div class="card" style="background-color: #2a3d8fcc;">
-                        <div class="card-header" style="background-color: #2a3d8fcc;">
+                <div class="col-md-3 mb-4">
+                    <a href="/verideas/{{campaign.idcampaign}}" style="text-decoration: none;">
+                    <div class="card" style="background-color: #4859a3;">
+                        <div class="card-header subtitulo2" style="background-color: #2a3d8f;">
                             Campaña Número: <strong>{{ campaign.idcampaign }}</strong>
                         </div>
-                        <a href="/verideas/{{campaign.idcampaign}}">
+                        
                         <div class="card-body">
                         </div>
-                        <h6 class="d-flex justify-content-center align-content-center mb-5 ml-2 subtitulo">{{ campaign.name_campaing }}</h6>
+                        <h6 class="d-flex justify-content-center align-content-center mb-5 ml-2 mr-2 subtitulo">{{ campaign.name_campaing }}</h6>
                     </div>
                 </div>
-                {% endfor %}
                 </a>
+                {% endfor %}
+                
+            </div>
             </div>
         </div>
 
         <br>
 
-        <div class="cuadroauto">
-            <p class="titulo">Lista de Campañas</p>
-            <div class="col-11 p-4 my-4 bg-body-secondary bg-opacity-50 text-light mx-auto">
-                <table class="table table-bordered table-striped ">
-                <thead class="table-dark">
-                <th>Campaña Nro:</th>
-                <th>Nombre de la campaña</th>
-                <th>Acciones</th>
-                </thead>
-                <tbody>
-                {% for campaign in campaigns %}
-                <tr>
-                <td> {{ campaign.idcampaign }}</td>
-                <td> {{ campaign.name_campaing }}</td>
-                <td><a href="/verideas/{{campaign.idcampaign}}">Ver campaña</a></td>
-                </tr>
-                {% endfor %}
-                </tbody>
-                </table>
-            </div>
-        </div>
+
 
     </div>
 
