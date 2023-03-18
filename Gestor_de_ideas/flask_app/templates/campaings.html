@@ -43,53 +43,72 @@
     </a>
     {% endfor %} --> <!-- traer todas las campañas para insertar ideas -->
 
-
-
-    
-    
-    
     
     <div class="containergenerico">
-        <div class="cuadrogenerico">
-            <p class="titulo">Lista de Campañas</p>
+        
+        <div class="cuadroauto">
+            <div class="bg-body-secondary bg-opacity-50 text-light mx-auto">
+                <label class="titulo2" for="description">Añade tu Campaña</label>
+                <form action="/campaign/guardar" method="post">
+                    <div class="form-group">
+                        <label class="subtitulo" for="description">Nombre de la campaña</label>
+                        <br>
+                        <input type="text" name="content" class="form-control">
+                        <br>
+                        <input  type="submit" value="Enviar Campaña" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <br>
+        
+        <div class="cuadroauto">
+            <p class="titulo">Campañas</p>
             <div class="col-11 p-4 my-4 bg-body-secondary bg-opacity-50 text-light mx-auto">
 
-    <table class="table table-bordered table-striped ">
-        <thead class="table-dark">
-            <th>Campaña Nro:</th>
-            <th>Nombre de la campaña</th>
-            <th>Acciones</th>
-        </thead>
-        <tbody>
-            {% for campaign in campaigns %}
-            <tr>
+                {% for campaign in campaigns %}
+                
+                <div class="col-md-3 mb-3">
+                    <div class="card" style="background-color: #2a3d8fcc;">
+                        <div class="card-header" style="background-color: #2a3d8fcc;">
+                            Campaña Número: <strong>{{ campaign.idcampaign }}</strong>
+                        </div>
+                        <a href="/verideas/{{campaign.idcampaign}}">
+                        <div class="card-body">
+                        </div>
+                        <h6 class="d-flex justify-content-center align-content-center mb-5 ml-2 subtitulo">{{ campaign.name_campaing }}</h6>
+                    </div>
+                </div>
+                {% endfor %}
+                </a>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="cuadroauto">
+            <p class="titulo">Lista de Campañas</p>
+            <div class="col-11 p-4 my-4 bg-body-secondary bg-opacity-50 text-light mx-auto">
+                <table class="table table-bordered table-striped ">
+                <thead class="table-dark">
+                <th>Campaña Nro:</th>
+                <th>Nombre de la campaña</th>
+                <th>Acciones</th>
+                </thead>
+                <tbody>
+                {% for campaign in campaigns %}
+                <tr>
                 <td> {{ campaign.idcampaign }}</td>
                 <td> {{ campaign.name_campaing }}</td>
                 <td><a href="/verideas/{{campaign.idcampaign}}">Ver campaña</a></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-
+                </tr>
+                {% endfor %}
+                </tbody>
+                </table>
             </div>
-
-
-            <div class="col-11 p-4 my-4 bg-body-secondary bg-opacity-50 text-light mx-auto">
-            
-            <label class="titulo" for="description">Añade tu Campaña</label>
-            <form action="/campaign/guardar" method="post">
-            <div class="form-group">
-                <label class="subtitulo" for="description">Nombre de la campaña</label>
-                <br>
-                <input type="text" name="content" class="form-control">
-                <br>
-                <input  type="submit" value="Enviar Campaña" class="btn btn-primary">
-            </div>
-            </form>
-            </div>
-
         </div>
+
     </div>
 
 
