@@ -19,7 +19,7 @@ class Campaign:
     
     @classmethod
     def save(cls,data):
-        query = "INSERT INTO campaigns (name_campaing, id_strategy) VALUES (%(campaign)s, 1);"
+        query = "INSERT INTO campaigns (name_campaing, id_strategy) VALUES (%(campaign)s, %(idstrategy)s);"
         print(query)
         return connectToMySQL(cls.db_name).query_db(query,data)
         
