@@ -34,7 +34,7 @@
     </nav>
     
     <div class="containergenerico">
-        
+        {% if (user_data.type_user == 1 or user_data.type_user == 3) %}
         <div class="cuadroauto">
             <div class="bg-body-secondary bg-opacity-50 text-light mx-auto">
                 <label class="titulo2" for="description">Añade tu Campaña</label>
@@ -49,6 +49,7 @@
                 </form>
             </div>
         </div>
+        {% endif %}
         
         <br>
         

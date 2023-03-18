@@ -14,8 +14,9 @@ def vercampaigns():
     if session.get('id') == None:
         return redirect('/')
     campaigns = Campaign.get_allcampaing()
+    user_data = User.get_by_id(session)
     print(campaigns)
-    return render_template('campaings.html', campaigns=campaigns)
+    return render_template('campaings.html', campaigns=campaigns, user_data=user_data)
 
 @app.route('/campaign/guardar', methods = ['GET','POST']) # Joel
 def save_campaing():
