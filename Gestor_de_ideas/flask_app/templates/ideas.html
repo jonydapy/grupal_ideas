@@ -12,11 +12,11 @@
 <body class="bodygenerico">
 
 <!-- Navbar-->
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2a3d8fcc;">
-    <div class="container-fluid justify-content-between">
+<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #2a3d8fcc;">
+    <div class="container-fluid justify-content-between ml-4 mr-4">
         <!-- Left elements -->
-        <div class="d-flex">
-            <h4 class="titulo navbar-nav me-auto mb-2 mb-lg-0">Proyecto Ideas</h4>
+        <div>
+            <span class="titulo hache1" data-heading="i"></span><span class="titulo">deas</span>
         </div>
         <!-- Left elements -->
 
@@ -121,9 +121,9 @@
                             {% for idea in ideas %}
                         <tr>
                             <td> {{ idea.ididea }}</td>
-                            <td> {{idea.content}}</td>
+                            <td><span class="titulo2 hache1" data-heading="{{idea.content}}"></span></td>
                             <td> {{idea.first_name}} {{idea.last_name}} </td> 
-                            <td><a href="/verideaporid/{{ideas[0]['ididea']}}">Ver idea</a></td>
+                            <td><a href="/verideaporid/{{ideas[0]['ididea']}}">Ver idea y debatir</a></td>
                         </tr>
                             {% endfor %}
                         {% else %}

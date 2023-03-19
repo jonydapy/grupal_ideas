@@ -12,11 +12,11 @@
 <body class="bodygenerico">
 
 <!-- Navbar-->
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2a3d8fcc;">
-    <div class="container-fluid justify-content-between">
+<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #2a3d8fcc;">
+    <div class="container-fluid justify-content-between ml-4 mr-4">
         <!-- Left elements -->
-        <div class="d-flex">
-            <h4 class="titulo navbar-nav me-auto mb-2 mb-lg-0">Proyecto Ideas</h4>
+        <div>
+            <span class="titulo hache1" data-heading="i"></span><span class="titulo">deas</span>
         </div>
         <!-- Left elements -->
 
@@ -40,9 +40,6 @@
                 <a href="{{ url_for('initiative') }}">Create Initiatives</a>
             </li>
             <li>
-                <a href="{{ url_for('list_of_initiatives') }}">View Initiatives</a>
-            </li>
-            <li>
                 <a href="{{ url_for('hypothesis') }}">Hip and Exp</a>
             </li>
             <li>
@@ -55,15 +52,9 @@
             <li>
                 <a href="{{ url_for('vercampaigns') }}">View Campaigns</a>
             </li>
-            <li>
-                <a href="{{ url_for('list_of_initiatives') }}">View Initiatives</a>
-            </li>
             {% elif user_data.type_user == 3 %}
             <li>
                 <a href="{{ url_for('vercampaigns') }}">View Campaigns</a>
-            </li>
-            <li>
-                <a href="{{ url_for('list_of_initiatives') }}">View Initiatives</a>
             </li>
             <!-- <li>
                 <a href="#">Rate initiatives</a>
@@ -80,9 +71,6 @@
             </li>
             <li>
                 <a href="{{ url_for('initiative') }}">Create Initiatives</a>
-            </li>
-            <li>
-                <a href="{{ url_for('list_of_initiatives') }}">View Initiatives</a>
             </li>
             <li>
                 <a href="{{ url_for('hypothesis') }}">Hip and Exp</a>

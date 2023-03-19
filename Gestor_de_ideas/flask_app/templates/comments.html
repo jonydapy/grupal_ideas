@@ -12,11 +12,11 @@
 <body class="bodygenerico">
 
 <!-- Navbar-->
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2a3d8fcc;">
-    <div class="container-fluid justify-content-between">
+<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #2a3d8fcc;">
+    <div class="container-fluid justify-content-between ml-4 mr-4">
         <!-- Left elements -->
-        <div class="d-flex">
-            <h4 class="titulo navbar-nav me-auto mb-2 mb-lg-0">Proyecto Ideas</h4>
+        <div>
+            <span class="titulo hache1" data-heading="i"></span><span class="titulo">deas</span>
         </div>
         <!-- Left elements -->
 
@@ -112,8 +112,8 @@
                 <div>
                     <div>
                         <div class="form-group">
+                            <p class="subtitulo" for="description">Detalles de la idea:</p>
                             <br>
-                            <label class="subtitulo" for="description">Describe tu idea:</label>
                             <div class="text-start form-control">
                                 {% for idea in ideas %}
                                 <strong>Idea:</strong> {{idea.ididea}}<br>
@@ -132,6 +132,7 @@
                                 {% endfor %}
                             </div>
                         </div>
+                        <br>
                         <label class="subtitulo" for="description">Añade tu comentario</label>
                         <form action="/savecomment/{{idea.ididea}}" method="post">
                         <div class="form-group">
