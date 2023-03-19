@@ -155,7 +155,7 @@
                                         {% for idea in ideas %}
                                         <tr>
                                             <td>{{ idea['idea'] }}</td>
-                                            <td>{{ idea['first_name'] + " " + idea['first_name']}}</td>
+                                            <td>{{ idea['first_name'] + " " + idea['last_name']}}</td>
                                             <td>
                                                 <form action="{{ url_for('cluster_this') }}" method="post">
                                                     <input type="hidden" value="{{ idea['ididea'] }}" name="ididea">
