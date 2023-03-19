@@ -50,17 +50,19 @@ def save_idea():
 def commentidea(ididea):
     if session.get('id') == None:
         return redirect('/')
+    user_data = User.get_by_id(session)
     data = {
         "ididea": ididea
     }
     comments= Comment.get_allcommentsporidea(data)
-    return render_template('comments.html', ideas=Idea.get_by_ididea(data), comments=comments)
+    return render_template('comments.html', ideas=Idea.get_by_ididea(data), comments=comments, user_data = user_data)
 
 
 @app.route('/savecomment/<int:ididea>',methods=['post'])
 def savecomment(ididea):
         if session.get('id') == None:
             return redirect('/')
+        user_data = User.get_by_id(session)
         data={
             "comment":request.form['comment'],
             "id": session["id"],
@@ -68,10 +70,10 @@ def savecomment(ididea):
         }
         Comment.savecomment(data)
         comments= Comment.get_allcommentsporidea(data)
-        return render_template('comments.html', ideas=Idea.get_by_ididea(data), comments=comments)
+        return render_template('comments.html', ideas=Idea.get_by_ididea(data), comments=comments, user_data = user_data)
         
 
-@app.route('/saveidea',methods=['post'])
+@app.route('/saveidea', methods=['post'])
 def save():
     # if session.get('id') == None:
     #        return redirect('/')

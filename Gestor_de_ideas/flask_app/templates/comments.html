@@ -114,19 +114,21 @@
                         <div class="form-group">
                             <br>
                             <label class="subtitulo" for="description">Describe tu idea:</label>
-                            <div class="form-control text-start">
+                            <div class="text-start form-control">
                                 {% for idea in ideas %}
-                                <br>
-                                <strong>Idea:</strong> {{idea.ididea}}
-                                <br>
-                                <strong>Creador:</strong> {{idea.first_name}} {{idea.last_name}}
-                                <br>
-                                <strong>Descripcion:</strong> {{idea.content}}
-                                
-                                <br>
-                                <strong>Comentarios:</strong>
+                                <strong>Idea:</strong> {{idea.ididea}}<br>
+                                <strong>Creador:</strong> {{idea.first_name}} {{idea.last_name}}<br>
+                                <strong>Descripcion:</strong> {{idea.content}}<br>
+                                <div class="mb-2"><strong>Comentarios:</strong></div>
                                 {% for comment in comments %}
-                                <p>{{comment.first_name}} {{comment.last_name}} : {{comment.comment}}  </p>
+                                <div class="row border-top">
+                                    <p class="col-2 fw-bold">
+                                        {{comment.first_name}} {{comment.last_name}} : 
+                                    </p>
+                                    <p class="col">
+                                        {{comment.comment}}
+                                    </p>
+                                </div>
                                 {% endfor %}
                             </div>
                         </div>
