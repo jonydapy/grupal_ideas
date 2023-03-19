@@ -121,7 +121,7 @@
                             {% for idea in ideas %}
                         <tr>
                             <td> {{ idea.ididea }}</td>
-                            <td><span class="titulo2 hache1" data-heading="{{idea.content}}"></span></td>
+                            <td><span class="titulo2">{{idea.content}}</span></td>
                             <td> {{idea.first_name}} {{idea.last_name}} </td>
                             {% if (ideas[0]['ididea']) == "" %}
                             <td></td>
