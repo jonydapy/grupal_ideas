@@ -15,8 +15,8 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2a3d8fcc;">
     <div class="container-fluid justify-content-between">
         <!-- Left elements -->
-        <div class="d-flex">
-            <h4 class="titulo navbar-nav me-auto mb-2 mb-lg-0">Proyecto Ideas</h4>
+        <div>
+            <span class="titulo">Proyecto</span> <span class="titulo hache1" data-heading="i"></span><span class="titulo">deas</span>
         </div>
         <!-- Left elements -->
 
@@ -44,9 +44,6 @@
             </li>
             <li>
                 <a href="{{ url_for('hypothesis') }}">Hip and Exp</a>
-            </li>
-            <li>
-                <a href="{{ url_for('adm_roles') }}">Roles</a>
             </li>
             {% elif user_data.type_user == 2 %}
             <li>
