@@ -23,7 +23,7 @@
         <!-- Center elements -->
         <ul class="list navbar-nav flex-row d-none d-md-flex">
             <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
-            {% if user_data.type_user == 1 %}
+            {% if users.type_user == 1 %}
             <li>
                 <a href="{{ url_for('strategy') }}">Strategies</a>
             </li>
@@ -48,7 +48,7 @@
             <li>
                 <a href="{{ url_for('adm_roles') }}">Roles</a>
             </li>
-            {% elif user_data.type_user == 2 %}
+            {% elif users.type_user == 2 %}
             <li>
                 <a href="{{ url_for('strategy') }}">Strategies</a>
             </li>
@@ -58,7 +58,7 @@
             <li>
                 <a href="{{ url_for('list_of_initiatives') }}">View Initiatives</a>
             </li>
-            {% elif user_data.type_user == 3 %}
+            {% elif users.type_user == 3 %}
             <li>
                 <a href="{{ url_for('vercampaigns') }}">View Campaigns</a>
             </li>
@@ -68,7 +68,7 @@
             <!-- <li>
                 <a href="#">Rate initiatives</a>
             </li> -->
-            {% elif user_data.type_user == 4 %}
+            {% elif users.type_user == 4 %}
             <li>
                 <a href="{{ url_for('vercampaigns') }}">View Campaigns</a>
             </li>

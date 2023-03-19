@@ -113,7 +113,7 @@ def view_profile():
     if session.get('id') == None:
         return redirect('/')
     users= User.get_by_id(session)
-    return render_template('profiletrue.html', users= users)
+    return render_template('profiletrue.html', users= users, tipo_roles = Type_User.get_all())
 
 
 @app.route('/profile/update', methods = ['POST', 'GET'])
