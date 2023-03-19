@@ -105,14 +105,14 @@
 </nav>
 <!-- Navbar -->
 
-    <div class="containergenerico_izq">
-        <div class="cuadrogenerico_izq">
+<div class="containergenerico_izq ml-lg-5 mr-lg-5 mb-lg-5">
+    <div class="cuadroauto_izq">
             <p class="titulo">Accesos directos:</p>
 
         </div>
     </div>
-    <div class="containergenerico_der">
-        <div class="cuadrogenerico_der">
+    <div class="containergenerico_der ml-lg-5 mr-lg-5 mb-lg-5">
+        <div class="cuadroauto_der">
             <p class="titulo">Editar Perfil</p>
             <form action="{{ url_for('update_profile') }}" method="post">
                 <input class="input" type="text" value="{{users.first_name}}" name="first_name" required><br>
