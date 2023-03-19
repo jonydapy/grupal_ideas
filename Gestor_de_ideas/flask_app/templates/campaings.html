@@ -12,11 +12,11 @@
 <body class="bodycampaigns">
 
 <!-- Navbar-->
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2a3d8fcc;">
-    <div class="container-fluid justify-content-between">
+<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #2a3d8fcc;">
+    <div class="container-fluid justify-content-between ml-4 mr-4">
         <!-- Left elements -->
-        <div class="d-flex">
-            <h4 class="titulo navbar-nav me-auto mb-2 mb-lg-0">Proyecto Ideas</h4>
+        <div>
+            <span class="titulo">Proyecto</span> <span class="titulo hache1" data-heading="i"></span><span class="titulo">deas</span>
         </div>
         <!-- Left elements -->
 
@@ -26,9 +26,6 @@
             {% if user_data.type_user == 1 %}
             <li>
                 <a href="{{ url_for('strategy') }}">Strategies</a>
-            </li>
-            <li>
-                <a href="{{ url_for('vercampaigns') }}">View Campaigns</a>
             </li>
             <!-- <li>
                 <a href="#">Rate initiatives</a>
@@ -53,15 +50,9 @@
                 <a href="{{ url_for('strategy') }}">Strategies</a>
             </li>
             <li>
-                <a href="{{ url_for('vercampaigns') }}">View Campaigns</a>
-            </li>
-            <li>
                 <a href="{{ url_for('list_of_initiatives') }}">View Initiatives</a>
             </li>
             {% elif user_data.type_user == 3 %}
-            <li>
-                <a href="{{ url_for('vercampaigns') }}">View Campaigns</a>
-            </li>
             <li>
                 <a href="{{ url_for('list_of_initiatives') }}">View Initiatives</a>
             </li>
@@ -70,11 +61,8 @@
             </li> -->
             {% elif user_data.type_user == 4 %}
             <li>
-                <a href="{{ url_for('vercampaigns') }}">View Campaigns</a>
-            </li>
-            <div class="col mt-1">
                 <a href="{{ url_for('cluster_ideas') }}">Cluster ideas</a>
-            </div>
+            </li>
             <li>
                 <a href="{{ url_for('cluster') }}">View Clusters</a>
             </li>
@@ -88,9 +76,6 @@
                 <a href="{{ url_for('hypothesis') }}">Hip and Exp</a>
             </li>
             {% else %}
-            <li>
-                <a href="{{ url_for('vercampaigns') }}">View Campaigns</a>
-            </li>
             {% endif %}
         </ul>
         <!-- Center elements -->
@@ -106,7 +91,7 @@
 <!-- Navbar -->
 
 <!-- Add and view Campaigns -->
-    <div class="containergenerico">
+    <div class="mt-lg-5 ml-lg-5 mr-lg-5 mb-lg-5">
         {% if (user_data.type_user == 1 or user_data.type_user == 3) %}
         <div class="cuadroauto">
             <label class="titulo2" for="description">Añade una Campaña</label>
@@ -116,7 +101,7 @@
                     <br>
                     <p class="subtitulo">Selecciona una Estrategia</p>
                     <br>
-                    <select class="form-select" id="select" name="idstrategy" aria-label="Default select">
+                    <select class="form-select btn btn-secondary btn-lg dropdown-toggle" id="select" name="idstrategy" aria-label="Default select"  style="background-color: #2a3d8f;">
                         <option selected>Elige una Estrategia de la lista</option>
                         {% for strategy in strategys %}
                         <option value="{{ strategy['idstrategy'] }}">{{ strategy['name'] }}</option>
@@ -130,15 +115,17 @@
                     <br>
                     <input type="text" name="content" class="form-control">
                     <br>
-                    <input  type="submit" value="Enviar Campaña" class="btn btn-primary">
+                    <input  type="submit" value="Enviar Campaña" class="btn btn-secondary btn-lg" style="background-color: #2a3d8f;">
                 </div>
             </div>
             </form>
         </div>
         {% endif %}
         <br>
-        <div class="cuadroauto">
+        <br>
+        <div class="cuadroauto mb-5">
             <p class="titulo2">Campañas</p>
+            <br>
             <div class="row row-col-1 row-cols-sm-1 row-cols-md-4 row-cols-lg-4 mt-1 mb-1 mx-1">
                 {% for campaign in campaigns %}
                 <div class="col-md-3 mb-4">
@@ -146,6 +133,7 @@
                     <div class="card" style="background-color: #4859a3;">
                         <div class="card-header subtitulo2" style="background-color: #2a3d8f;">
                             Campaña Número: <strong>{{ campaign.idcampaign }}</strong>
+                            <br>Estrategia: <strong>#</strong>
                         </div>
                         
                         <div class="card-body">
