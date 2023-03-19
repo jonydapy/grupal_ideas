@@ -10,131 +10,137 @@
 </head>
 
 <body class="bodycampaigns">
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #2a3d8fcc;">
-        <!-- Container wrapper -->
-        <div class="container-fluid">
-            <!-- Collapsible wrapper -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left elements -->
+
+<!-- Navbar-->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2a3d8fcc;">
+    <div class="container-fluid justify-content-between">
+        <!-- Left elements -->
+        <div class="d-flex">
             <h4 class="titulo navbar-nav me-auto mb-2 mb-lg-0">Proyecto Ideas</h4>
-            <!-- end Left elements -->
-            </div>
-            
-            <!-- Right elements -->
-            <div>
-                <ul class="list navbar-nav me-auto mb-2 mb-lg-0">
-                        <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
-                        {% if user_data.type_user == 1 %}
-                        <li>
-                            <a href="{{ url_for('strategy') }}">Strategies</a>
-                        </li>
-                        <li>
-                            <a href="{{ url_for('vercampaigns') }}">View Campaigns</a>
-                        </li>
-                        <!-- <li>
-                            <a href="#">Rate initiatives</a>
-                        </li> -->
-                        <li>
-                            <a href="{{ url_for('cluster_ideas') }}">Cluster ideas</a>
-                        </li>
-                        <li>
-                            <a href="{{ url_for('initiative') }}">Create Initiatives</a>
-                        </li>
-                        <li>
-                            <a href="{{ url_for('list_of_initiatives') }}">View Initiatives</a>
-                        </li>
-                        <li>
-                            <a href="{{ url_for('hypothesis') }}">Hip and Exp</a>
-                        </li>
-                        <li>
-                            <a href="{{ url_for('adm_roles') }}">Roles</a>
-                        </li>
-                        {% elif user_data.type_user == 2 %}
-                        <li>
-                            <a href="{{ url_for('strategy') }}">Strategies</a>
-                        </li>
-                        <li>
-                            <a href="{{ url_for('vercampaigns') }}">View Campaigns</a>
-                        </li>
-                        <li>
-                            <a href="{{ url_for('list_of_initiatives') }}">View Initiatives</a>
-                        </li>
-                        {% elif user_data.type_user == 3 %}
-                        <li>
-                            <a href="{{ url_for('vercampaigns') }}">View Campaigns</a>
-                        </li>
-                        <li>
-                            <a href="{{ url_for('list_of_initiatives') }}">View Initiatives</a>
-                        </li>
-                        <!-- <li>
-                            <a href="#">Rate initiatives</a>
-                        </li> -->
-                        {% elif user_data.type_user == 4 %}
-                        <li>
-                            <a href="{{ url_for('vercampaigns') }}">View Campaigns</a>
-                        </li>
-                        <div class="col mt-1">
-                            <a href="{{ url_for('cluster_ideas') }}">Cluster ideas</a>
-                        </div>
-                        <li>
-                            <a href="{{ url_for('cluster') }}">View Clusters</a>
-                        </li>
-                        <li>
-                            <a href="{{ url_for('initiative') }}">Create Initiatives</a>
-                        </li>
-                        <li>
-                            <a href="{{ url_for('list_of_initiatives') }}">View Initiatives</a>
-                        </li>
-                        <li>
-                            <a href="{{ url_for('hypothesis') }}">Hip and Exp</a>
-                        </li>
-                        {% else %}
-                        <li>
-                            <a href="{{ url_for('vercampaigns') }}">View Campaigns</a>
-                        </li>
-                        {% endif %}
-                        <li><a href="{{ url_for('view_profile') }}">👤 {{session['nombre']}} {{session['apellido']}}</a></li>
-                        <li><a href="{{ url_for('logout') }}">Logout</a></li>
-                </ul>
-            </div>
-            <!-- end Right elements -->
         </div>
-        <!-- end Container wrapper -->
-    </nav>
-    
+        <!-- Left elements -->
+
+        <!-- Center elements -->
+        <ul class="list navbar-nav flex-row d-none d-md-flex">
+            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            {% if user_data.type_user == 1 %}
+            <li>
+                <a href="{{ url_for('strategy') }}">Strategies</a>
+            </li>
+            <li>
+                <a href="{{ url_for('vercampaigns') }}">View Campaigns</a>
+            </li>
+            <!-- <li>
+                <a href="#">Rate initiatives</a>
+            </li> -->
+            <li>
+                <a href="{{ url_for('cluster_ideas') }}">Cluster ideas</a>
+            </li>
+            <li>
+                <a href="{{ url_for('initiative') }}">Create Initiatives</a>
+            </li>
+            <li>
+                <a href="{{ url_for('list_of_initiatives') }}">View Initiatives</a>
+            </li>
+            <li>
+                <a href="{{ url_for('hypothesis') }}">Hip and Exp</a>
+            </li>
+            <li>
+                <a href="{{ url_for('adm_roles') }}">Roles</a>
+            </li>
+            {% elif user_data.type_user == 2 %}
+            <li>
+                <a href="{{ url_for('strategy') }}">Strategies</a>
+            </li>
+            <li>
+                <a href="{{ url_for('vercampaigns') }}">View Campaigns</a>
+            </li>
+            <li>
+                <a href="{{ url_for('list_of_initiatives') }}">View Initiatives</a>
+            </li>
+            {% elif user_data.type_user == 3 %}
+            <li>
+                <a href="{{ url_for('vercampaigns') }}">View Campaigns</a>
+            </li>
+            <li>
+                <a href="{{ url_for('list_of_initiatives') }}">View Initiatives</a>
+            </li>
+            <!-- <li>
+                <a href="#">Rate initiatives</a>
+            </li> -->
+            {% elif user_data.type_user == 4 %}
+            <li>
+                <a href="{{ url_for('vercampaigns') }}">View Campaigns</a>
+            </li>
+            <div class="col mt-1">
+                <a href="{{ url_for('cluster_ideas') }}">Cluster ideas</a>
+            </div>
+            <li>
+                <a href="{{ url_for('cluster') }}">View Clusters</a>
+            </li>
+            <li>
+                <a href="{{ url_for('initiative') }}">Create Initiatives</a>
+            </li>
+            <li>
+                <a href="{{ url_for('list_of_initiatives') }}">View Initiatives</a>
+            </li>
+            <li>
+                <a href="{{ url_for('hypothesis') }}">Hip and Exp</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="{{ url_for('vercampaigns') }}">View Campaigns</a>
+            </li>
+            {% endif %}
+        </ul>
+        <!-- Center elements -->
+
+        <!-- Right elements -->
+        <ul class="list navbar-nav flex-row">
+        <li><a href="{{ url_for('view_profile') }}"><img src="https://img.freepik.com/foto-gratis/chico-worldface-espanol-fondo-blanco_53876-137665.jpg" class="rounded-circle" height="22" alt="Black and White Portrait of a Man" loading="lazy"> {{session['nombre']}} {{session['apellido']}}</a></li>
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+        <!-- Right elements -->
+    </div>
+</nav>
+<!-- Navbar -->
+
+<!-- Add and view Campaigns -->
     <div class="containergenerico">
         {% if (user_data.type_user == 1 or user_data.type_user == 3) %}
         <div class="cuadroauto">
-            <div class="bg-body-secondary bg-opacity-50 text-light mx-auto">
-                <label class="titulo2" for="description">Añade tu Campaña</label>
-                <form action="/campaign/guardar" method="post">
-                    <div class="form-group">
-                        <label class="subtitulo" for="description">Nombre de la campaña</label>
-                        <br>
-                        <input type="text" name="content" class="form-control">
-                        <br>
-                        <select class="" id="select" name="idstrategy">
-                           
-                            {% for strategy in strategys %}
-                            <option value="{{ strategy['idstrategy'] }}" selected>{{ strategy['name'] }}</option>
-                            {% endfor %}
-                        </select>
-                        <input  type="submit" value="Enviar Campaña" class="btn btn-primary">
-                    </div>
-                </form>
+            <label class="titulo2" for="description">Añade una Campaña</label>
+            <form action="/campaign/guardar" method="post">
+            <div class="row justify-content-center">
+                <div class="col-5 rounded-lg me-2 rounded rounded-4">
+                    <br>
+                    <p class="subtitulo">Selecciona una Estrategia</p>
+                    <br>
+                    <select class="form-select" id="select" name="idstrategy" aria-label="Default select">
+                        <option selected>Elige una Estrategia de la lista</option>
+                        {% for strategy in strategys %}
+                        <option value="{{ strategy['idstrategy'] }}">{{ strategy['name'] }}</option>
+                        {% endfor %}
+                    </select>
+                    <br>
+                </div>
+                <div class="col-5 rounded-lg rounded rounded-4">
+                    <br>
+                    <p class="subtitulo">Escribe el objetivo de la campaña:</p>
+                    <br>
+                    <input type="text" name="content" class="form-control">
+                    <br>
+                    <input  type="submit" value="Enviar Campaña" class="btn btn-primary">
+                </div>
             </div>
+            </form>
         </div>
         {% endif %}
-        
         <br>
-        
         <div class="cuadroauto">
             <p class="titulo2">Campañas</p>
             <div class="row row-col-1 row-cols-sm-1 row-cols-md-4 row-cols-lg-4 mt-1 mb-1 mx-1">
-<!--             <div class="col-11 p-4 my-4 bg-body-secondary bg-opacity-50 text-light mx-auto"> -->
-
                 {% for campaign in campaigns %}
-                
                 <div class="col-md-3 mb-4">
                     <a href="/verideas/{{campaign.idcampaign}}" style="text-decoration: none;">
                     <div class="card" style="background-color: #4859a3;">
@@ -149,17 +155,12 @@
                 </div>
                 </a>
                 {% endfor %}
-                
             </div>
             </div>
         </div>
-
         <br>
-
-
-
     </div>
-
+<!-- end Add and view Campaigns -->
 
 
     <footer class="text-center text-white fixed-bottom" style="background-color: #21081acc;">
