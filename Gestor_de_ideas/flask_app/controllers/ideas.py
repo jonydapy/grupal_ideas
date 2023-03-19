@@ -17,6 +17,7 @@ def verideadecampaign(id_campaign):
     data = {
         "id_campaign": id_campaign
     }
+    user_data = User.get_by_id(session)
     if len(Idea.get_allideasporusuario(data)) != 0:
         ideas=Idea.get_allideasporusuario(data)
     else:
@@ -27,7 +28,7 @@ def verideadecampaign(id_campaign):
             "last_name":"",
             "id_campaign": id_campaign
         }]
-    return render_template('ideas.html', ideas=ideas)
+    return render_template('ideas.html', ideas=ideas, user_data = user_data)
 
 @app.route('/verideas/guardar', methods = ['GET','POST']) # Jony
 def save_idea():
