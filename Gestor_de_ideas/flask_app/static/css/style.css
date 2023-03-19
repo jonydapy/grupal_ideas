@@ -232,8 +232,28 @@ left: 75%;
     text-align: center;
     }
 
+.cuadroauto_izq {
+    height: auto;
+    padding: 3em;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
+    text-align: center;
+    }
+
 .cuadrogenerico_izq {
     height: 100%;
+    padding: 3em;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
+    text-align: center;
+    }
+
+.cuadroauto_der {
+    height: auto;
     padding: 3em;
     border-radius: 20px;
     background: rgba(255,255,255,0.3);
