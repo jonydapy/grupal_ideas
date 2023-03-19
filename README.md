@@ -1,4 +1,4 @@
-# grupal_ideas
-proyecto grupal coding dojo.
+# Proyecto Ideas
+### Integrantes:
 
 ## TITULO DE PRUEBA
